@@ -1,0 +1,41 @@
+{
+    "manifest_version": 2,
+    "name": "eAsux",
+    "version": "0.9.1",
+    "description": "Don't get scammed by eAsistent.",
+    "icons": {
+        "128": "icons/128.png"
+    },
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": "icons/128.png"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "matches": [
+            "*://www.easistent.com/*"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://www.easistent.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "kekw.css"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "*://www.easistent.com/*"
+    ]
+}
