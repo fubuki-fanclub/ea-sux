@@ -37,6 +37,9 @@ function toggle(e) {
 
 }
 
+document.querySelector('a').addEventListener('click',x=>{
+    chrome.tabs.create({url:"https://github.com/fubuki-fanclub/ea-sux"})
+})
 
 //! THIS CODE IS KINDA CRAP
 //! REWRITE TIME?

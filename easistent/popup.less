@@ -8,99 +8,121 @@
 html,
 body {
     padding: 0;
-    margin : 0;
+    margin: 0;
 }
 
 body {
     background-color: @dark-bg;
-    width           : 300px;
+    width: 300px;
 
     h1 {
         position: relative;
 
-        background     : linear-gradient(to right, #54bed8 0%, #0077d8 100%);
+        background: linear-gradient(to right, #54bed8 0%, #0077d8 100%);
         background-clip: text;
 
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 
-        text-align : center;
+        text-align: center;
         line-height: 2em;
-        margin     : 0;
+        margin: 0;
 
         padding: 0 10px;
     }
 
     h1::before {
-        content   : 'kek';
-        height    : 2px;
-        position  : absolute;
-        left      : 0;
-        top       : 2px;
-        width     : 100%;
+        content: 'kek';
+        height: 2px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 100%;
         background: linear-gradient(to right, #54bed8 0%, #0077d8 100%);
     }
 
     h1::after {
-        content   : 'kek';
-        height    : 2px;
-        position  : absolute;
-        left      : 0;
-        bottom    : 0px;
-        width     : 100%;
+        content: 'kek';
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        width: 100%;
         background: linear-gradient(to right, #54bed8 0%, #0077d8 100%);
     }
 
     #options {
         padding: 10px;
 
+        .joke {
+            color: darken(@dark-fg, 20%) !important;
+            font-weight: normal !important;
+        }
+
         .option {
-            margin : 0;
+            margin: 0;
             padding: .7rem .2rem;
-            color  : @dark-fg;
+            color: @dark-fg;
 
             display: flex;
 
             span {
                 flex: 1;
+                color: @dark-fg;
+                font-weight: bold;
             }
 
             .slide {
-                height          : 1rem;
-                width           : 2rem;
-                position        : relative;
-                border-radius   : .5rem;
+                height: 1rem;
+                width: 2rem;
+                position: relative;
+                border-radius: .5rem;
                 background-color: @dark-bgl;
-                transition      : 100ms ease;
+                transition: 100ms ease;
             }
 
             .slide::after {
-                top             : 0.09rem;
-                left            : 0.15rem;
-                width           : 0.8rem;
-                height          : 0.8rem;
-                content         : "";
-                display         : block;
-                position        : absolute;
-                border-radius   : 50%;
+                top: 0.09rem;
+                left: 0.15rem;
+                width: 0.8rem;
+                height: 0.8rem;
+                content: "";
+                display: block;
+                position: absolute;
+                border-radius: 50%;
                 background-color: #4af;
-                transition      : 100ms ease;
+                transition: 100ms ease;
             }
 
             .slide.a {
                 background-color: #4af;
-                transition      : 100ms ease;
+                transition: 100ms ease;
             }
+
             .slide.a::after {
                 background-color: @dark-bgl;
-                left            : 1.05rem;
-                transition      : 100ms ease;
+                left: 1.05rem;
+                transition: 100ms ease;
             }
         }
 
         .option:hover {
             background-color: @dark-hl;
-            transition      : 100ms ease;
+            transition: 100ms ease;
+        }
+    }
+
+    .about {
+        width: 100%;
+        background: linear-gradient(to right, #54bed8 0%, #0077d8 100%);
+        color: #fff;
+        p {
+            line-height: 1rem;
+            text-align: center;
+            margin: 0;
+            a {
+                color: #fff;
+            }
         }
     }
 
