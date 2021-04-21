@@ -1,9 +1,12 @@
 {
     "manifest_version": 2,
-    "name": "eAsux",
-    "version": "0.9.1",
-    "description": "Don't get scammed by eAsistent.",
+    "name": "eAsistent+",
+    "version": "1.0.1",
+    "description": "Makes eAsistent actually usable.",
     "icons": {
+        "16": "icons/16.png",
+        "24": "icons/24.png",
+        "48": "icons/48.png",
         "128": "icons/128.png"
     },
     "browser_action": {
