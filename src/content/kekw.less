@@ -1,0 +1,192 @@
+@plugin "../less-plugin.js";
+
+//#region COLOR
+@dark-bg: #1b1e22;
+@dark-fg: #fff;
+@dark-hl: #2d343a;
+//#endregion COLORS
+
+
+//#region small fixes
+#master-header:not(:root.lsd *) {
+    background: linear-gradient(to right, #54bed8 0%, #0077d8 100%);
+}
+
+#login-navbar img.circle-small {
+    object-fit: cover;
+}
+
+//#endregion
+
+
+:root.dark {
+
+    body {
+        background-color: @dark-bg  !important;
+        color           : @dark-fg im !important;
+    }
+
+    .paper-panel,
+    .paper-panel-item {
+        background-color: @dark-hl  !important;
+        color           : @dark-fg  !important;
+    }
+}
+
+:root.flop {
+
+    #login-navbar>ul>li.nav-preizkusno-obdobje>div>div>span.pull-left.circle-plus {
+        background-image: url('https://cdn.discordapp.com/emojis/820762592610877521.gif');
+        background-size : cover;
+    }
+
+    #login-navbar>ul>li.nav-preizkusno-obdobje>div>div>span.ml-1x {
+        font-size: 0;
+    }
+
+    #login-navbar>ul>li.nav-preizkusno-obdobje>div>div>span.ml-1x::after {
+        font-size: 1.5rem;
+        opacity  : 1;
+        display  : inline;
+        content  : "FLOPPER MODE";
+    }
+
+    img[src="/images/dijaki_stars_app/empty-state.png"] {
+        //display        : block;
+        //-moz-box-sizing: border-box;
+        //box-sizing     : border-box;
+        background     : url('https://s3.eu-central-1.wasabisys.com/cdn.femboy.si/flop-no-content.jpeg') no-repeat;
+        background-size: 100%;
+        //width          : 1000px;
+        //height         : 500px;
+        //padding-left   : 180px;
+    }
+
+}
+
+:root.lsd {
+
+    //apply this to all for cancer
+    #xa-app>div:nth-child(1) * {
+        animation   : partybar 2s linear infinite;
+    }
+
+    body {
+        animation: spin2win 2s linear infinite;
+    }
+
+    body>*>* {
+        animation: lsdskew 6s linear infinite;
+    }
+
+    #xa-app {
+        animation: desync 2000ms linear infinite;
+    }
+
+    @keyframes partybar {
+        0% {
+            background: #ff0000;
+        }
+
+        8% {
+            background: #000000;
+        }
+
+        16% {
+            background: #ff00fb;
+        }
+
+        24% {
+            background: #000000;
+        }
+
+        32% {
+            background: #0014ff;
+        }
+
+        40% {
+            background: #000000;
+        }
+
+        48% {
+            background: #00fff1;
+        }
+
+        56% {
+            background: #000000;
+        }
+
+        64% {
+            background: #00ff28;
+        }
+
+        72% {
+            background: #000000;
+        }
+
+        80% {
+            background: #fffa00;
+        }
+
+        88% {
+            background: #000000;
+        }
+
+        100% {
+            background: #ff0000;
+        }
+    }
+
+    @keyframes lsdskew {
+        0% {
+            transform: skew(0deg);
+        }
+
+        25% {
+            transform: skew(3deg);
+        }
+
+        50% {
+            transform: skew(0deg);
+        }
+
+        70% {
+            transform: skew(-3deg);
+        }
+
+        100% {
+            transform: skew(0deg);
+        }
+    }
+
+    @keyframes desync {
+        0% {
+            transform: rotate(0deg);
+            filter   : blur(0px);
+        }
+
+        94% {
+            transform: rotate(5deg);
+            filter   : blur(0px);
+
+        }
+
+        95% {
+            transform: rotate(5deg);
+            filter   : blur(15px);
+
+        }
+
+        100% {
+            transform: rotate(0deg);
+            filter   : blur(0px);
+
+        }
+    }
+
+    @keyframes spin2win {
+        // function that emits the fucking keyframes
+        // beats having 400 lines of keyframes here   
+        gen-keyframes();
+    }
+}

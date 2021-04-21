@@ -12,7 +12,7 @@
     },
     "background": {
         "scripts": [
-            "background.js"
+            "background.bundle.js"
         ],
         "matches": [
             "*://www.easistent.com/*"
@@ -24,7 +24,7 @@
                 "*://www.easistent.com/*"
             ],
             "js": [
-                "content.js"
+                "content.bundle.js"
             ],
             "css": [
                 "kekw.css"

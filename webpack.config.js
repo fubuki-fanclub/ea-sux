@@ -1,0 +1,62 @@
+const webpack = require("webpack"),
+    path = require("path"),
+    CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin,
+    CopyWebpackPlugin = require("copy-webpack-plugin"),
+    HtmlWebpackPlugin = require("html-webpack-plugin"),
+    WriteFilePlugin = require("write-file-webpack-plugin"),
+    MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+
+var fileExtensions = ["jpg", "jpeg", "png", "gif", "eot", "otf", "svg", "ttf", "woff", "woff2"];
+
+var options = {
+    mode: "production",
+    entry: {
+        'popup-style': './src/popup/popup.less',
+        background: "./src/background/background.js",
+        content: "./src/content/content.js",
+        popup: "./src/popup/popup.js",
+        kekw: './src/content/kekw.less'
+    },
+    output: {
+        path: path.join(__dirname, "./build"),
+        filename: "[name].bundle.js"
+    },
+    module: {
+        rules: [
+            {
+                test: /\.less$/i,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "less-loader",
+                ],
+            },
+            {
+                test: new RegExp('.(' + fileExtensions.join('|') + ')$'),
+                use: ["file-loader"],
+                exclude: /node_modules/
+            },
+        ]
+    },
+    plugins: [
+        // clean the build folder
+        new CleanWebpackPlugin(),
+        // expose and write the allowed env vars on the compiled bundle
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: "src/manifest.json" },
+                { from: "src/icons", to: "icons"}
+            ]
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/popup/popup.html",
+            filename: "popup.html",
+            chunks: ["popup"]
+        }),
+        new WriteFilePlugin(),
+        new MiniCssExtractPlugin()
+    ]
+};
+
+module.exports = options;

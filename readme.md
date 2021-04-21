@@ -1,11 +1,12 @@
 # eA sux
 fixing eAsistent's shit.
 
-![Menu](/images/menu.png)
+![Menu](/.images/menu.png)
 
 ### Installing
-- Build the .less files
+- `npm i`
+- `npx webpack`
 - Install extension from folder
 - profit??
 
-![Screenshot](/images/screenshot.png)
+![Screenshot](/.images/screenshot.png)
