@@ -18,7 +18,7 @@ function updateRoot(data) {
  * gets called every time the settings are updated
  */
 function settingsChanged(changes,area) {
-    chrome.storage.sync.get(['flop', 'lsd', 'dark'], (data) => {
+    chrome.storage.sync.get(['flop', 'lsd', 'dark','plus','extend'], (data) => {
         updateRoot(data);
     })
 }

@@ -1,9 +1,3 @@
-Array.from(document.querySelectorAll('.slide')).
-    forEach(x => x.addEventListener('click', toggle))
-
-initSwitch('flop');
-initSwitch('dark');
-initSwitch('lsd');
 
 function initSwitch(id) {
     chrome.storage.sync.get([id], v => {
@@ -14,7 +8,7 @@ function initSwitch(id) {
             v[id] = false;
         }
         if (v[id])
-            document.getElementById(id).classList.add('a');
+        document.getElementById(id).classList.add('a');
     });
 }
 
@@ -24,7 +18,7 @@ function initSwitch(id) {
 function toggle(e) {
     let a = {};
     const val = !e.target.classList.contains('a')
-
+    
     a[e.target.id] = val;
     chrome.storage.sync.set(a, () => {
         console.log(`set ${e.target.id} to ${val}`)
@@ -34,12 +28,21 @@ function toggle(e) {
             e.target.classList.remove('a');
         }
     });
-
+    
 }
 
-document.querySelector('a').addEventListener('click',x=>{
+document.querySelector('a[href="#g"]').addEventListener('click',x=>{
     chrome.tabs.create({url:"https://github.com/fubuki-fanclub/ea-sux"})
-})
+});
+document.querySelector('a[href="#b"]').addEventListener('click',x=>{
+    chrome.tabs.create({url:"https://github.com/fubuki-fanclub/ea-sux/issues"})
+});
 
-//! THIS CODE IS KINDA CRAP
-//! REWRITE TIME?
+Array.from(document.querySelectorAll('.slide')).
+    forEach(x => x.addEventListener('click', toggle))
+
+initSwitch('plus');
+initSwitch('extend');
+initSwitch('flop');
+initSwitch('dark');
+initSwitch('lsd');
