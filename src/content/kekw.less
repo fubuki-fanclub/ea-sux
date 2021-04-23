@@ -27,10 +27,20 @@
     }
 
     .paper-panel,
-    .paper-panel-item {
+    .paper-panel-item,
+    .dropdown-menu,
+    .btn {
         background-color: @dark-hl  !important;
         color           : @dark-fg  !important;
     }
+
+    .btn, .dropdown-option {
+        &focus, &:focus, &:hover {
+            color: mix(@dark-hl, @dark-fg, 30%) !important;
+            background-color: @dark-hl  !important;
+        }
+    }
+
 }
 
 :root.flop {
