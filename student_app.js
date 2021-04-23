@@ -12,6 +12,59 @@
 console.log('%cstudent_app.js - patched\n%cby: @marwuint & @maticbabnik','color:red;font-size:16px','color:magenta');
 
 
+
+
+//*-----------------------------------------------------------------------
+//!patch
+    let menuTemplate = document.querySelector('#app-menu-temp')
+    menuTemplate.innerHTML = 
+    `
+    <div id="master-menu" v-bind:class="{ 'open': menu.opened }">
+        <div id="mm-submenu" v-on:click="$store.dispatch('toggleAppMenu', false)">
+
+            <div v-for="child in user.children" v-on:click="$store.dispatch('setActiveChild', child)">
+                <router-link to="/feed">
+                    <child-select-option :child="child" :active="( child === user.activeChild )"></child-select-option>
+                </router-link>
+            </div>
+
+                        <router-link to="/feed" class="mm-link"><span class="mr-1x icon icon-open"></span>Časovnica</router-link>
+                            <a href="/xooltime/prijava" target="_blank" rel="noopener" class="mm-link"><span class="mr-1x icon icon-x"></span>Spletna učilnica</a>
+                        <router-link v-if="menuItems.calendar" to="/calendar" class="mm-link"><span class="mr-1x icon icon-calendar"></span>Koledar</router-link>
+            <router-link v-if="menuItems.grades" to="/grades" class="mm-link"><span class="mr-1x icon icon-grades"></span>Ocene</router-link>
+            <router-link v-if="menuItems.examinations" to="/examinations" class="mm-link"><span class="mr-1x icon icon-knowledge-assessment"></span>Ocenjevanja znanja</router-link>
+            <router-link v-if="menuItems.homework" to="/homework" class="mm-link"><span class="mr-1x icon icon-edit"></span>Naloge</router-link>
+            <router-link v-if="menuItems.absences" :to="absenceRoute" class="mm-link"><span class="mr-1x icon icon-absence"></span>Izostanki</router-link>
+
+                                        <a href="/sporocila" class="mm-link"><span class="mr-1x icon icon-messages"></span>Sporočila</a>
+                                                    <a href="https://komunikacija.easistent.com/" class="mm-link">
+                    <span class="mr-1x icon icon-comment-full"></span>
+                    Komunikacija
+                    <span class="n-count pull-right" v-if="unreadCount > 0">
+                        <span>{{ unreadCount }}</span>
+                    </span>
+                </a>
+                <a href="/sporocila" class="mm-link"><span class="mr-1x icon icon-messages"></span>Arhiv sporočil</a>
+            
+            <router-link v-if="menuItems.x360" to="/x360" class="mm-link"><span class="mr-1x icon icon-like"></span>x360</router-link>
+
+            <router-link v-if="menuItems.consents" to="/consent/list" class="mm-link">
+                <span class="mr-1x icon icon-badge"></span>
+                <span>eSoglasja</span>
+            </router-link>
+
+            
+            <a v-if="menuItems.graduation" href="/matura" class="mm-link"><span class="mr-1x icon icon-certificate"></span>Matura</a>
+
+            <router-link to="/inject/settings" class="mm-link"><span class="mr-1x icon icon-settings"></span>p100 vue injection</router-link>
+        </div>
+    </div>
+    `;
+
+//*-----------------------------------------------------------------------
+
+
+
 parcelRequire = function (e, r, t, n) {
     var i, o = "function" == typeof parcelRequire && parcelRequire,
         u = "function" == typeof require && require;
@@ -1239,7 +1292,16 @@ parcelRequire = function (e, r, t, n) {
                 component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/consent_item"))
                 }
-            }, {
+            }, 
+            { //!patch
+                path: "/inject/settings",
+                component:
+                    Vue.component('kek', {
+                        template: '<div class="paper-panel-item"><h1>kekW</h1><video controls autoplay src="https://s3.eu-central-1.wasabisys.com/cdn.femboy.si/floppa.mp4"></video></div>'
+                      })
+                
+            },
+            {
                 path: "*",
                 redirect: "/feed"
             }]

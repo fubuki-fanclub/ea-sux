@@ -10,7 +10,8 @@ chrome.storage.onChanged.addListener(settingsChanged)
 
 chrome.webRequest.onHeadersReceived.addListener(info => {
     return overridePlus ? {
-        redirectUrl: "https://s3.eu-central-1.wasabisys.com/cdn.femboy.si/ea/student_app.js"
+        //redirectUrl: "https://s3.eu-central-1.wasabisys.com/cdn.femboy.si/ea/student_app.js"
+        redirectUrl: "http://localhost:1337/student_app.js"
     } : {};
 }, {
     urls: [
