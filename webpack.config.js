@@ -4,7 +4,8 @@ const webpack = require("webpack"),
     CopyWebpackPlugin = require("copy-webpack-plugin"),
     HtmlWebpackPlugin = require("html-webpack-plugin"),
     WriteFilePlugin = require("write-file-webpack-plugin"),
-    MiniCssExtractPlugin = require('mini-css-extract-plugin');
+    MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+    zipWebpackPlugin = require('zip-webpack-plugin');
 
 
 var fileExtensions = ["jpg", "jpeg", "png", "gif", "eot", "otf", "svg", "ttf", "woff", "woff2"];
@@ -46,7 +47,7 @@ var options = {
         new CopyWebpackPlugin({
             patterns: [
                 { from: "src/manifest.json" },
-                { from: "src/icons", to: "icons"}
+                { from: "src/icons", to: "icons" }
             ]
         }),
         new HtmlWebpackPlugin({
@@ -55,7 +56,11 @@ var options = {
             chunks: ["popup"]
         }),
         new WriteFilePlugin(),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new zipWebpackPlugin({
+            path: '.',
+            filename: 'ea-sux-dist.zip'
+        })
     ]
 };
 
