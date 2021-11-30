@@ -1,4 +1,3 @@
-@plugin "../less-plugin.js";
 
 //#region COLOR
 @dark-bg: #1b1e22;
@@ -195,8 +194,12 @@
     }
 
     @keyframes spin2win {
-        // function that emits the fucking keyframes
-        // beats having 400 lines of keyframes here   
-        gen-keyframes();
+        // emits keyframes
+        //1.8deg * value order is important
+        each(range(100%), {
+            @{value} {
+                background: linear-gradient(1.80deg * @value, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 251, 1) 16%, rgba(0, 20, 255, 1) 32%, rgba(0, 255, 241, 1) 48%, rgba(0, 255, 40, 1) 64%, rgba(255, 250, 0, 1) 80%, rgba(255, 0, 0, 1) 100%);
+            }
+        })
     }
 }
