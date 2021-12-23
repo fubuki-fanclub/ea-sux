@@ -1,11 +1,6 @@
 {
     "manifest_version": 2,
     "name": "eAsistent+",
-    "applications": {
-        "gecko": {
-            "id": "easistent_plus@femboy.si"
-        }
-    },
     "version": "1.1.5",
     "description": "Makes eAsistent actually usable.",
     "icons": {
@@ -14,7 +9,7 @@
         "48": "icons/48.png",
         "128": "icons/128.png"
     },
-    "browser_action": {
+    "page_action": {
         "default_popup": "popup.html",
         "default_icon": "icons/128.png"
     },
@@ -23,13 +18,17 @@
             "background.bundle.js"
         ],
         "matches": [
-            "*://www.easistent.com/*"
+            "*://komunikacija.easistent.com/*",
+            "*://www.easistent.com/*",
+            "*://easistent.com/*"
         ]
     },
     "content_scripts": [
         {
             "matches": [
-                "*://www.easistent.com/*"
+                "*://komunikacija.easistent.com/*",
+                "*://www.easistent.com/*",
+                "*://easistent.com/*"
             ],
             "js": [
                 "content.bundle.js"
@@ -44,6 +43,8 @@
         "storage",
         "webRequest",
         "webRequestBlocking",
-        "*://www.easistent.com/*"
+        "*://easistent.com/*",
+        "*://www.easistent.com/*",
+        "*://komunikacija.easistent.com/*"
     ]
 }

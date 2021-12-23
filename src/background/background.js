@@ -17,3 +17,8 @@ chrome.webRequest.onHeadersReceived.addListener(info => {
         "*://www.easistent.com/js/build/student_app.*.js"
     ]
 }, ["blocking", "responseHeaders"])
+
+chrome.extension.onMessage.addListener((request, sender) => {
+    console.log(request.message);
+    request.message === "activate_icon" && chrome.pageAction.show(sender.tab.id);
+});
