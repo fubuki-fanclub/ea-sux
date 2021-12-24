@@ -19,6 +19,5 @@ chrome.webRequest.onHeadersReceived.addListener(info => {
 }, ["blocking", "responseHeaders"])
 
 chrome.extension.onMessage.addListener((request, sender) => {
-    console.log(request.message);
     request.message === "activate_icon" && chrome.pageAction.show(sender.tab.id);
 });

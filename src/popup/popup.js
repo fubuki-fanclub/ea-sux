@@ -20,7 +20,6 @@ function toggle(e) {
 
     a[e.target.id] = val;
     chrome.storage.sync.set(a, () => {
-        console.log(`set ${e.target.id} to ${val}`)
         if (val) {
             e.target.classList.add('a');
         } else {
