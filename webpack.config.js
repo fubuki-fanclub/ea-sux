@@ -1,11 +1,13 @@
 const webpack = require("webpack"),
+    DefinePlugin = webpack.DefinePlugin,
     path = require("path"),
     CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin,
     CopyWebpackPlugin = require("copy-webpack-plugin"),
     HtmlWebpackPlugin = require("html-webpack-plugin"),
     WriteFilePlugin = require("write-file-webpack-plugin"),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-    zipWebpackPlugin = require('zip-webpack-plugin');
+    zipWebpackPlugin = require('zip-webpack-plugin'),
+    pgk = require('./src/manifest.json');
 
 
 var fileExtensions = ["jpg", "jpeg", "png", "gif", "eot", "otf", "svg", "ttf", "woff", "woff2"];
@@ -43,6 +45,10 @@ var options = {
     plugins: [
         // clean the build folder
         new CleanWebpackPlugin(),
+        new DefinePlugin({
+            __PLUGIN_VERSION__: `"${pgk.version}"`,
+
+        }),
         // expose and write the allowed env vars on the compiled bundle
         new CopyWebpackPlugin({
             patterns: [

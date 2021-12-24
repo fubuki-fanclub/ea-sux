@@ -2,7 +2,7 @@
 ! BIG P100 INJECT SCRIPT
 */
 
-
+chrome.runtime.sendMessage({"message": "activate_icon"});
 console.log('%ceAsistent+ loaded','color: #0077d8;font-size:32px;')
 
 
