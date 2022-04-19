@@ -1,10 +1,10 @@
 /*
 ! BIG P100 INJECT SCRIPT
 */
+import { goSigma } from "./sigma-motivation"
 
 chrome.runtime.sendMessage({"message": "activate_icon"});
 console.log('%ceAsistent+ loaded','color: #0077d8;font-size:32px;')
-
 
 /**
  * sets classes on the root element
@@ -17,11 +17,17 @@ function updateRoot(data) {
 /**
  * gets called every time the settings are updated
  */
-function settingsChanged(changes,area) {
-    chrome.storage.sync.get(['flop', 'lsd', 'dark','plus','extend'], (data) => {
+function settingsChanged(changes, area) {
+    chrome.storage.sync.get(['flop', 'lsd', 'dark', 'plus', 'extend'], (data) => {
         updateRoot(data);
     })
 }
 
 chrome.storage.onChanged.addListener(settingsChanged)
 settingsChanged();
+
+(() => {
+    const currentLocation = new URL(document.location.href)
+    if (currentLocation.pathname === '/')
+        goSigma();
+})()
