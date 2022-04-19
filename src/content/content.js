@@ -3,8 +3,8 @@
 */
 import { goSigma } from "./sigma-motivation"
 
-console.log('%ceAsistent+ loaded', 'color: #0077d8;font-size:32px;')
-
+chrome.runtime.sendMessage({"message": "activate_icon"});
+console.log('%ceAsistent+ loaded','color: #0077d8;font-size:32px;')
 
 /**
  * sets classes on the root element
