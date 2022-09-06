@@ -119,7 +119,7 @@ parcelRequire = function(e, r, t, n) {
                 return !1
             },
             showMojAsistentBanner: function(n) {
-                return void 0 !== n.showMojAsistentBanner ? n.showMojAsistentBanner : "false" !== window.sessionStorage.getItem("showMojAsistentBanner") && e().format("YYYY-MM-DD") < "2022-11-01"
+                return void 0 !== n.showMojAsistentBanner ? n.showMojAsistentBanner : "false" !== window.sessionStorage.getItem("showMojAsistentBanner") && e().format("YYYY-MM-DD") < "1970-01-01"
             },
             showTrialStartBanner: function(n) {
                 return n.user && n.user.activeChild && n.user.activeChild.plus_enabled
