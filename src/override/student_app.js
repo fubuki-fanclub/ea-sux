@@ -1,7 +1,6 @@
 /*
  ! -----------------------------------------------------------------
  ?  student_app.js - patched
- ?  by: @marwuint & @maticbabnik
  ?  find patches by searching for "//!patch"
  ! -----------------------------------------------------------------
 */
@@ -9,7 +8,7 @@
 //TODO: auto patch? (so updates don't fuck up)
 
 
-console.log('%cstudent_app.js - patched\n%cby: @marwuint & @maticbabnik','color:red;font-size:16px','color:magenta');
+console.log('%cstudent_app.js - patched\n%cby: @marwuint & @maticbabnik & @CommandStorm5','color:red;font-size:16px','color:magenta');
 
 
 parcelRequire = function(e, r, t, n) {

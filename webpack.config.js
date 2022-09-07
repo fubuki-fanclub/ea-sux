@@ -16,10 +16,10 @@ var options = {
     mode: "production",
     entry: {
         'popup-style': './src/popup/popup.less',
-        background: "./src/background/background.js",
+        // background: "./src/background/background.js",
         content: "./src/content/content.js",
         popup: "./src/popup/popup.js",
-        kekw: './src/content/kekw.less'
+        kekw: './src/content/kekw.less',
     },
     output: {
         path: path.join(__dirname, "./build"),
@@ -49,11 +49,12 @@ var options = {
             __PLUGIN_VERSION__: `"${pgk.version}"`,
 
         }),
-        // expose and write the allowed env vars on the compiled bundle
         new CopyWebpackPlugin({
             patterns: [
                 { from: "src/manifest.json" },
-                { from: "src/icons", to: "icons" }
+                { from: "src/icons", to: "icons" },
+                { from: "src/override/student_app.js" },
+                { from: "src/background", to: "background.bundle.js" }
             ]
         }),
         new HtmlWebpackPlugin({

@@ -4,6 +4,7 @@
         "build": "npx webpack"
     },
     "dependencies": {
+        "@types/chrome": "^0.0.196",
         "webpack": "^5.35.0",
         "webpack-cli": "^4.6.0"
     },

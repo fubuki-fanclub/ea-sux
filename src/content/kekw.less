@@ -17,7 +17,7 @@
 
 //#region sigma
 
-div.header-info > p.pocetna-header-text {
+div.header-info>p.pocetna-header-text {
     text-shadow: 0px 0px 4px white, 0px 0px 4px white, 0px 0px 4px white,
         0px 0px 4px white, 0px 0px 10px white;
 }
@@ -26,7 +26,7 @@ div.header-info > p.pocetna-header-text {
 
 :root.dark {
     body {
-        background-color: @dark-bg !important;
+        background-color: @dark-bg  !important;
         color: @dark-fg im !important;
     }
 
@@ -34,42 +34,33 @@ div.header-info > p.pocetna-header-text {
     .paper-panel-item,
     .dropdown-menu,
     .btn {
-        background-color: @dark-hl !important;
-        color: @dark-fg !important;
+        background-color: @dark-hl  !important;
+        color: @dark-fg  !important;
     }
 
     .btn,
     .dropdown-option {
+
         &focus,
         &:focus,
         &:hover {
             color: mix(@dark-hl, @dark-fg, 30%) !important;
-            background-color: @dark-hl !important;
+            background-color: @dark-hl  !important;
         }
     }
 }
 
 :root.flop {
-    #login-navbar
-        > ul
-        > li.nav-preizkusno-obdobje
-        > div
-        > div
-        > span.pull-left.circle-plus {
+    #login-navbar>ul>li.nav-preizkusno-obdobje>div>div>span.pull-left.circle-plus {
         background-image: url("https://s3.eu-central-1.wasabisys.com/cdn.femboy.si/ea/floppa.gif");
         background-size: cover;
     }
 
-    #login-navbar > ul > li.nav-preizkusno-obdobje > div > div > span.ml-1x {
+    #login-navbar>ul>li.nav-preizkusno-obdobje>div>div>span.ml-1x {
         font-size: 0;
     }
 
-    #login-navbar
-        > ul
-        > li.nav-preizkusno-obdobje
-        > div
-        > div
-        > span.ml-1x::after {
+    #login-navbar>ul>li.nav-preizkusno-obdobje>div>div>span.ml-1x::after {
         font-size: 1.5rem;
         opacity: 1;
         display: inline;
@@ -80,8 +71,7 @@ div.header-info > p.pocetna-header-text {
         //display        : block;
         //-moz-box-sizing: border-box;
         //box-sizing     : border-box;
-        background: url("https://s3.eu-central-1.wasabisys.com/cdn.femboy.si/ea/flop-no-content.jpeg")
-            no-repeat;
+        background: url("https://s3.eu-central-1.wasabisys.com/cdn.femboy.si/ea/flop-no-content.jpeg") no-repeat;
         background-size: 100%;
         //width          : 1000px;
         //height         : 500px;
@@ -89,22 +79,53 @@ div.header-info > p.pocetna-header-text {
     }
 }
 
+:root.simplehome {
+
+    .sub-nav,
+    .wrapper-video-section,
+    .mobile-download,
+    .varnost.wow.slideInDown,
+    .ea-info.alpha-box,
+    .help-index.padding-fix,
+    .trust-index,
+    .data-protection,
+    .join,
+    .company-about,
+    .podari-malico {
+        display: none !important;
+    }
+
+    .col-md-8.col-md-pull-4.header-info {
+        // next to login, sigma tips
+    }
+
+    #index-header-size {
+        .header-body {
+            background-image: none;
+        }
+
+        background-image: url("https://www.easistent.com/images/prva_stran/ucilnica.jpg");
+        background-size: cover;
+    }
+}
+
+:root.sigma {
+    .col-md-8.col-md-pull-4.header-info {
+
+        .wrapper-zaposlujemo.wrapper-zaposlujemo--second,
+        .header-buttons-group {
+            display: none;
+        }
+    }
+}
+
 :root.lsd {
-    //apply this to all for cancer
-    #xa-app > div:nth-child(1) * {
+    #xa-app>div:nth-child(1) * {
         animation: partybar 2s linear infinite;
     }
 
     body {
         animation: spin2win 2s linear infinite;
-    }
-
-    body > * > * {
-        animation: lsdskew 6s linear infinite;
-    }
-
-    #xa-app {
-        animation: desync 2000ms linear infinite;
     }
 
     @keyframes partybar {
@@ -161,57 +182,11 @@ div.header-info > p.pocetna-header-text {
         }
     }
 
-    @keyframes lsdskew {
-        0% {
-            transform: skew(0deg);
-        }
-
-        25% {
-            transform: skew(3deg);
-        }
-
-        50% {
-            transform: skew(0deg);
-        }
-
-        70% {
-            transform: skew(-3deg);
-        }
-
-        100% {
-            transform: skew(0deg);
-        }
-    }
-
-    @keyframes desync {
-        0% {
-            transform: rotate(0deg);
-            filter: blur(0px);
-        }
-
-        94% {
-            transform: rotate(5deg);
-            filter: blur(0px);
-        }
-
-        95% {
-            transform: rotate(5deg);
-            filter: blur(15px);
-        }
-
-        100% {
-            transform: rotate(0deg);
-            filter: blur(0px);
-        }
-    }
-
     @keyframes spin2win {
-        // emits keyframes
-        //1.8deg * value order is important
         each(range(100%), {
             @{value} {
-                background: linear-gradient(1.80deg * @value, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 251, 1) 16%, rgba(0, 20, 255, 1) 32%, rgba(0, 255, 241, 1) 48%, rgba(0, 255, 40, 1) 64%, rgba(255, 250, 0, 1) 80%, rgba(255, 0, 0, 1) 100%);
+                background: linear-gradient(3.60deg * @value, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 251, 1) 16%, rgba(0, 20, 255, 1) 32%, rgba(0, 255, 241, 1) 48%, rgba(0, 255, 40, 1) 64%, rgba(255, 250, 0, 1) 80%, rgba(255, 0, 0, 1) 100%);
             }
         });
-    }
+}
 }

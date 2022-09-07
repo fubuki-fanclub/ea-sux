@@ -1,13 +1,12 @@
-function initSwitch(id) {
-    chrome.storage.sync.get([id], v => {
-        if (typeof (v[id]) != 'boolean') {
-            let a = {}
-            a[id] = false;
-            chrome.storage.sync.set(a);
-            v[id] = false;
-        }
-        if (v[id])
-            document.getElementById(id).classList.add('a');
+function initalizeSwitches(propNames) {
+    chrome.storage.sync.get(null, props => {
+        propNames.forEach(name => {
+            if (typeof props[name] !== "boolean")
+                chrome.storage.sync.set({ [name]: false });
+            else if (props[name])
+                document.getElementById(name).classList.add('active');
+        })
+
     });
 }
 
@@ -15,15 +14,13 @@ function initSwitch(id) {
  * @param {MouseEvent} e 
  */
 function toggle(e) {
-    let a = {};
-    const val = !e.target.classList.contains('a')
+    const newState = !e.target.classList.contains('active')
 
-    a[e.target.id] = val;
-    chrome.storage.sync.set(a, () => {
-        if (val) {
-            e.target.classList.add('a');
+    chrome.storage.sync.set({ [e.target.id]: newState }, () => {
+        if (newState) {
+            e.target.classList.add('active');
         } else {
-            e.target.classList.remove('a');
+            e.target.classList.remove('active');
         }
     });
 
@@ -42,5 +39,5 @@ window.onload = () => {
 
     // init the switches
     [...document.querySelectorAll('.slide')].forEach(x => x.addEventListener('click', toggle))
-    ['plus', 'extend', 'flop', 'dark', 'lsd'].forEach(initSwitch)
+    initalizeSwitches(['plus', 'extend', 'flop', 'dark', 'lsd', 'simplehome', 'sigma']);
 };
