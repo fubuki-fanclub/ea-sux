@@ -9,7 +9,8 @@ html,
 body {
     padding: 0;
     margin: 0;
-    overflow: hidden !important;;
+    overflow: hidden !important;
+    ;
 }
 
 body {
@@ -95,12 +96,12 @@ body {
                 transition: 100ms ease;
             }
 
-            .slide.a {
+            .slide.active {
                 background-color: #4af;
                 transition: 100ms ease;
             }
 
-            .slide.a::after {
+            .slide.active::after {
                 background-color: @dark-bgl;
                 left: 1.05rem;
                 transition: 100ms ease;
@@ -117,10 +118,12 @@ body {
         width: 100%;
         background: linear-gradient(to right, #54bed8 0%, #0077d8 100%);
         color: #fff;
+
         p {
             line-height: 1rem;
             text-align: center;
             margin: 0;
+
             a {
                 color: #fff;
             }

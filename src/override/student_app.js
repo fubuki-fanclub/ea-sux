@@ -1,7 +1,6 @@
 /*
  ! -----------------------------------------------------------------
  ?  student_app.js - patched
- ?  by: @marwuint & @maticbabnik
  ?  find patches by searching for "//!patch"
  ! -----------------------------------------------------------------
 */
@@ -9,10 +8,10 @@
 //TODO: auto patch? (so updates don't fuck up)
 
 
-console.log('%cstudent_app.js - patched\n%cby: @marwuint & @maticbabnik','color:red;font-size:16px','color:magenta');
+console.log('%cstudent_app.js - patched\n%cby: @marwuint & @maticbabnik & @CommandStorm5', 'color:red;font-size:16px', 'color:magenta');
 
 
-parcelRequire = function(e, r, t, n) {
+parcelRequire = function (e, r, t, n) {
     var i, o = "function" == typeof parcelRequire && parcelRequire,
         u = "function" == typeof require && require;
 
@@ -26,7 +25,7 @@ parcelRequire = function(e, r, t, n) {
                 var c = new Error("Cannot find module '" + t + "'");
                 throw c.code = "MODULE_NOT_FOUND", c
             }
-            p.resolve = function(r) {
+            p.resolve = function (r) {
                 return e[t][1][r] || r
             }, p.cache = {};
             var l = r[t] = new f.Module(t);
@@ -38,10 +37,10 @@ parcelRequire = function(e, r, t, n) {
             return f(p.resolve(e))
         }
     }
-    f.isParcelRequire = !0, f.Module = function(e) {
+    f.isParcelRequire = !0, f.Module = function (e) {
         this.id = e, this.bundle = f, this.exports = {}
-    }, f.modules = e, f.cache = r, f.parent = o, f.register = function(r, t) {
-        e[r] = [function(e, r) {
+    }, f.modules = e, f.cache = r, f.parent = o, f.register = function (r, t) {
+        e[r] = [function (e, r) {
             r.exports = t
         }, {}]
     };
@@ -52,14 +51,14 @@ parcelRequire = function(e, r, t, n) {
     }
     if (t.length) {
         var l = f(t[t.length - 1]);
-        "object" == typeof exports && "undefined" != typeof module ? module.exports = l : "function" == typeof define && define.amd ? define(function() {
+        "object" == typeof exports && "undefined" != typeof module ? module.exports = l : "function" == typeof define && define.amd ? define(function () {
             return l
         }) : n && (this[n] = l)
     }
     if (parcelRequire = f, i) throw i;
     return f
 }({
-    "6JHB": [function(require, module, exports) {
+    "6JHB": [function (require, module, exports) {
         var e = require("moment");
         module.exports = {
             notifications: {
@@ -95,53 +94,53 @@ parcelRequire = function(e, r, t, n) {
     }, {
         "moment": "iROh"
     }],
-    "7Dq7": [function(require, module, exports) {
+    "7Dq7": [function (require, module, exports) {
         "use strict";
         var n = require("lodash"),
             e = require("moment");
         module.exports = {
-            menu: function(n) {
+            menu: function (n) {
                 return n.menu
             },
-            user: function(n) {
+            user: function (n) {
                 return n.user
             },
-            x360: function(n) {
+            x360: function (n) {
                 return n.x360
             },
-            child: function(n) {
+            child: function (n) {
                 return n.user.activeChild
             },
-            child_is_female: function(e) {
+            child_is_female: function (e) {
                 return "f" === (0, n.get)(e.user.activeChild, "gender", "m")
             },
-            showBanner: function(n) {
+            showBanner: function (n) {
                 return !1
             },
-            showMojAsistentBanner: function(n) {
+            showMojAsistentBanner: function (n) {
                 return void 0 !== n.showMojAsistentBanner ? n.showMojAsistentBanner : "false" !== window.sessionStorage.getItem("showMojAsistentBanner") && e().format("YYYY-MM-DD") < "1970-01-01"
             },
-            showTrialStartBanner: function(n) {
+            showTrialStartBanner: function (n) {
                 return n.user && n.user.activeChild && n.user.activeChild.plus_enabled
             },
-            showActivation: function(n) {
+            showActivation: function (n) {
                 return !1
             },
-            showAppDownload: function(n) {
+            showAppDownload: function (n) {
                 return n.user && n.user.activeChild && !n.user.activeChild.plus_enabled
             },
-            activeChildData: function(n) {
-                return [n.user.activeChild].map(function(n) {
+            activeChildData: function (n) {
+                return [n.user.activeChild].map(function (n) {
                     return n ? n.id : null
-                }).map(function(e) {
+                }).map(function (e) {
                     return n.childData[e]
-                }).map(function(n) {
+                }).map(function (n) {
                     return n || null
                 })[0]
             },
-            trialRunning: function(n) {
+            trialRunning: function (n) {
                 var e = n.user.activeChild;
-                return !!e && e.notifications.filter(function(n) {
+                return !!e && e.notifications.filter(function (n) {
                     return "request_plus" === n.type
                 }).length > 0
             }
@@ -150,15 +149,15 @@ parcelRequire = function(e, r, t, n) {
         "lodash": "4HJa",
         "moment": "iROh"
     }],
-    "bHdm": [function(require, module, exports) {
+    "bHdm": [function (require, module, exports) {
         module.exports = {
-            beforeSend: function(e) {
+            beforeSend: function (e) {
                 var t = (arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}).childID;
                 e.setRequestHeader("X-Client-Version", "13"), e.setRequestHeader("X-Client-Platform", "web"), e.setRequestHeader("X-Child-Id", t || $('meta[name="x-child-id"]').attr("content")), e.setRequestHeader("Authorization", $('meta[name="access-token"]').attr("content"))
             }
         };
     }, {}],
-    "Ijak": [function(require, module, exports) {
+    "Ijak": [function (require, module, exports) {
         function e(e, t, a) {
             return t in e ? Object.defineProperty(e, t, {
                 value: a,
@@ -171,24 +170,24 @@ parcelRequire = function(e, r, t, n) {
             a = require("./getters"),
             n = require("./auth"),
             o = n.beforeSend,
-            i = function(e, t) {
+            i = function (e, t) {
                 return o(e, {
                     childID: t
                 })
             };
         module.exports = {
-            setDate: function(e, t) {
+            setDate: function (e, t) {
                 (0, e.commit)("SET_DATE", {
                     date: t.date,
                     type: t.type
                 })
             },
-            addChildRepository: function(e, t) {
+            addChildRepository: function (e, t) {
                 (0, e.commit)("ADD_CHILD_REPO", {
                     childID: t
                 })
             },
-            toggleAppMenu: function(e) {
+            toggleAppMenu: function (e) {
                 var t = e.commit,
                     a = e.state,
                     n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
@@ -196,11 +195,11 @@ parcelRequire = function(e, r, t, n) {
                     opened: null !== n ? n : !a.menu.opened
                 })
             },
-            loadAppMenu: function(e) {
+            loadAppMenu: function (e) {
                 var t = e.commit;
                 //*-----------------------------------------------------------------------
                 window.state = e;
-                console.log('%cvuex state now available @ window.state','color:#41B883; background-color: #34495E; border-radius:3px; font-weight:bold;') //!patch
+                console.log('%cvuex state now available @ window.state', 'color:#41B883; background-color: #34495E; border-radius:3px; font-weight:bold;') //!patch
                 //*-----------------------------------------------------------------------
                 e.state;
                 t("SET_MENU_DATA", {
@@ -209,53 +208,53 @@ parcelRequire = function(e, r, t, n) {
                     url: "/m/client/settings",
                     type: "GET",
                     dataType: "JSON"
-                }).done(function(e) {
+                }).done(function (e) {
                     t("SET_MENU_DATA", {
                         items: e.main_menu_items,
                         loaded: !0
                     })
                 })
             },
-            setUserData: function(e, t) {
+            setUserData: function (e, t) {
                 (0, e.commit)("SET_USER_DATA", t)
             },
-            loadUserChildren: function(e, t) {
+            loadUserChildren: function (e, t) {
                 var a = e.commit;
                 $.ajax({
                     url: "/m/children",
                     type: "GET",
                     dataType: "JSON"
-                }).done(function(e) {
+                }).done(function (e) {
                     a("SET_USER_DATA", {
                         children: e.items
                     }), t && t()
                 })
             },
-            loadMeChild: function(e, t) {
+            loadMeChild: function (e, t) {
                 (0, e.commit)("SET_USER_DATA", {
                     children: []
                 }), $.ajax({
                     url: "/m/me/child",
                     type: "GET",
                     dataType: "JSON"
-                }).done(function(e) {
-                        //*-----------------------------------------------------------------------
-                        e.plus_enabled = true //!patch
-                        //*-----------------------------------------------------------------------
+                }).done(function (e) {
+                    //*-----------------------------------------------------------------------
+                    e.plus_enabled = true //!patch
+                    //*-----------------------------------------------------------------------
                     t && t(e)
                 })
             },
-            setActiveChild: function(e, t) {
+            setActiveChild: function (e, t) {
                 var a = e.commit;
                 $.ajaxSetup({
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, t.id)
                     }
                 }), a("SET_USER_DATA", {
                     activeChild: t
                 })
             },
-            loadNextNewsFeed: function(e, t) {
+            loadNextNewsFeed: function (e, t) {
                 var a = e.commit,
                     n = e.state,
                     o = t.childID,
@@ -278,16 +277,16 @@ parcelRequire = function(e, r, t, n) {
                     },
                     type: "GET",
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, o)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_NEWSFEED_LOADING", {
                         childID: o,
                         page: E,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     var t = e.items;
                     a("ADD_CHILD_REPO_NEWSFEED_PAGE", {
                         childID: o,
@@ -296,7 +295,7 @@ parcelRequire = function(e, r, t, n) {
                     }), d && d()
                 })
             },
-            loadAbsences: function(e, t) {
+            loadAbsences: function (e, t) {
                 var a = e.commit;
                 a("SET_CHILD_REPO_ABSENCES_LOADING", {
                     childID: t,
@@ -305,15 +304,15 @@ parcelRequire = function(e, r, t, n) {
                     url: "/m/absences",
                     type: "GET",
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, t)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_ABSENCES_LOADING", {
                         childID: t,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     var n = e.items,
                         o = e.summary;
                     a("SET_CHILD_REPO_ABSENCES_ITEMS", {
@@ -323,7 +322,7 @@ parcelRequire = function(e, r, t, n) {
                     })
                 })
             },
-            loadHomework: function(e, t) {
+            loadHomework: function (e, t) {
                 var a = e.commit;
                 a("SET_CHILD_REPO_HOMEWORK_LOADING", {
                     childID: t,
@@ -332,15 +331,15 @@ parcelRequire = function(e, r, t, n) {
                     url: "/m/homework",
                     type: "GET",
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, t)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_HOMEWORK_LOADING", {
                         childID: t,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     var n = e.items;
                     a("SET_CHILD_REPO_HOMEWORK_ITEMS", {
                         childID: t,
@@ -348,17 +347,17 @@ parcelRequire = function(e, r, t, n) {
                     })
                 })
             },
-            loadNotifications: function(e) {
+            loadNotifications: function (e) {
                 var t = e.commit;
                 $.ajax({
                     url: "/notifications/ajax_notifications_komunikacija_stevilo_neprebranih",
                     type: "GET",
                     dataType: "JSON"
-                }).done(function(e) {
+                }).done(function (e) {
                     t("SET_UNREAD_NOTIFICATIONS_COUNT", e.data)
                 })
             },
-            loadSubjectHomework: function(e, t) {
+            loadSubjectHomework: function (e, t) {
                 var a = e.commit,
                     n = t.childID,
                     o = t.subjectID;
@@ -370,16 +369,16 @@ parcelRequire = function(e, r, t, n) {
                     url: "/m/homework/classes/" + o,
                     type: "GET",
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, n)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_SUBJECT_HOMEWORK_LOADING", {
                         childID: n,
                         subjectID: o,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     var t = e.items;
                     a("SET_CHILD_REPO_SUBJECT_HOMEWORK_ITEMS", {
                         childID: n,
@@ -388,7 +387,7 @@ parcelRequire = function(e, r, t, n) {
                     })
                 })
             },
-            toggleSubjectHomeworkDetails: function(t, a) {
+            toggleSubjectHomeworkDetails: function (t, a) {
                 var n, o = t.commit,
                     d = a.childID,
                     _ = a.item;
@@ -399,9 +398,9 @@ parcelRequire = function(e, r, t, n) {
                 }), $.ajax((n = {
                     url: "/m/homework/" + _.id,
                     type: "GET"
-                }, e(n, "type", "GET"), e(n, "dataType", "JSON"), e(n, "beforeSend", function(e) {
+                }, e(n, "type", "GET"), e(n, "dataType", "JSON"), e(n, "beforeSend", function (e) {
                     return i(e, d)
-                }), n)).done(function(e) {
+                }), n)).done(function (e) {
                     o("SET_CHILD_REPO_HOMEWORK_DETAILS", {
                         item: _,
                         details: e,
@@ -412,7 +411,7 @@ parcelRequire = function(e, r, t, n) {
                     open: !_.details.open
                 })
             },
-            loadGrades: function(e, t) {
+            loadGrades: function (e, t) {
                 var a = e.commit;
                 a("SET_CHILD_REPO_GRADES_LOADING", {
                     childID: t,
@@ -421,15 +420,15 @@ parcelRequire = function(e, r, t, n) {
                     url: "/m/grades",
                     type: "GET",
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, t)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_GRADES_LOADING", {
                         childID: t,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     var n = e.items;
                     a("SET_CHILD_REPO_GRADES_ITEMS", {
                         childID: t,
@@ -437,7 +436,7 @@ parcelRequire = function(e, r, t, n) {
                     })
                 })
             },
-            loadSubjectGrades: function(e, t) {
+            loadSubjectGrades: function (e, t) {
                 var a = e.commit,
                     n = t.childID,
                     o = t.subjectID;
@@ -449,16 +448,16 @@ parcelRequire = function(e, r, t, n) {
                     url: "/m/grades/classes/" + o,
                     type: "GET",
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, n)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_SUBJECT_GRADES_LOADING", {
                         childID: n,
                         subjectID: o,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     a("SET_CHILD_REPO_SUBJECT_GRADES_ITEMS", {
                         childID: n,
                         subjectID: o,
@@ -466,7 +465,7 @@ parcelRequire = function(e, r, t, n) {
                     })
                 })
             },
-            loadConsent: function(e, t) {
+            loadConsent: function (e, t) {
                 var a = e.commit,
                     n = t.childID;
                 a("SET_CHILD_REPO_CONSENT_LOADING", {
@@ -476,22 +475,22 @@ parcelRequire = function(e, r, t, n) {
                     url: "/m/consent",
                     type: "GET",
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, n)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_CONSENT_LOADING", {
                         childID: n,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     a("SET_CHILD_REPO_CONSENT_ITEMS", {
                         childID: n,
                         items: e
                     })
                 })
             },
-            postConsent: function(e, t) {
+            postConsent: function (e, t) {
                 var a = e.commit,
                     n = t.childID,
                     o = t.type,
@@ -503,10 +502,10 @@ parcelRequire = function(e, r, t, n) {
                         status: d
                     },
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, n)
                     }
-                }).promise().then(function(e) {
+                }).promise().then(function (e) {
                     a("SET_CHILD_REPO_CONSENT_ITEM_STATUS", {
                         childID: n,
                         type: o,
@@ -514,17 +513,17 @@ parcelRequire = function(e, r, t, n) {
                     })
                 })
             },
-            openEvaluationsTab: function(e, t) {
+            openEvaluationsTab: function (e, t) {
                 (0, e.commit)("SET_CHILD_REPO_EVALUATIONS_TAB", {
                     childID: t.childID,
                     type: t.type
                 })
             },
-            loadEvaluations: function(e, t) {
+            loadEvaluations: function (e, t) {
                 var a = e.commit,
                     n = (e.state, t.childID),
                     o = t.types;
-                (void 0 === o ? ["past", "future"] : o).forEach(function(e) {
+                (void 0 === o ? ["past", "future"] : o).forEach(function (e) {
                     a("SET_CHILD_REPO_EVALUATIONS_LOADING", {
                         childID: n,
                         loaded: !1,
@@ -536,16 +535,16 @@ parcelRequire = function(e, r, t, n) {
                             filter: e
                         },
                         dataType: "JSON",
-                        beforeSend: function(e) {
+                        beforeSend: function (e) {
                             return i(e, n)
                         }
-                    }).always(function() {
+                    }).always(function () {
                         a("SET_CHILD_REPO_EVALUATIONS_LOADING", {
                             childID: n,
                             loaded: !0,
                             type: e
                         })
-                    }).done(function(t) {
+                    }).done(function (t) {
                         var o = t.items;
                         a("SET_CHILD_REPO_EVALUATIONS_ITEMS", {
                             childID: n,
@@ -555,7 +554,7 @@ parcelRequire = function(e, r, t, n) {
                     })
                 })
             },
-            loadTimeTable: function(e, a) {
+            loadTimeTable: function (e, a) {
                 var n = e.commit,
                     o = e.state,
                     d = a.childID,
@@ -573,10 +572,10 @@ parcelRequire = function(e, r, t, n) {
                     },
                     type: "GET",
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, d)
                     }
-                }).always(function() {
+                }).always(function () {
                     n("SET_CHILD_REPO_TIMETABLE_LOADING", {
                         childID: d,
                         loaded: !0
@@ -584,12 +583,12 @@ parcelRequire = function(e, r, t, n) {
                         childID: d,
                         noData: !1
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     n("SET_CHILD_REPO_TIMETABLE_ITEMS", {
                         childID: d,
                         items: e
                     })
-                }).error(function() {
+                }).error(function () {
                     n("SET_CHILD_REPO_TIMETABLE_NO_DATA", {
                         childID: d,
                         noData: !0
@@ -600,21 +599,21 @@ parcelRequire = function(e, r, t, n) {
                     request: c
                 })
             },
-            hideTrialStartBanner: function(e) {
+            hideTrialStartBanner: function (e) {
                 e.commit;
                 $.ajax({
                     url: "/webapp/ajax_close_trial_start_banner",
                     type: "POST"
                 })
             },
-            loadNewsFeed: function(e, t) {
+            loadNewsFeed: function (e, t) {
                 fetchChildApiResource(e, {
                     child: t,
                     type: "SET_NEWSFEED_DATA",
                     url: "/m/newsfeed"
                 })
             },
-            loadX360: function(e, t) {
+            loadX360: function (e, t) {
                 var a = e.commit;
                 a("SET_CHILD_REPO_X360_LOADING", {
                     childID: t,
@@ -623,15 +622,15 @@ parcelRequire = function(e, r, t, n) {
                     url: "/m/praises_and_improvements",
                     type: "GET",
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, t)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_X360_LOADING", {
                         childID: t,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     var n = e.items;
                     a("SET_CHILD_REPO_X360_ITEMS", {
                         childID: t,
@@ -639,7 +638,7 @@ parcelRequire = function(e, r, t, n) {
                     })
                 })
             },
-            loadMealStatus: function(e, t) {
+            loadMealStatus: function (e, t) {
                 var a = e.commit,
                     n = t.childID,
                     o = t.from,
@@ -657,22 +656,22 @@ parcelRequire = function(e, r, t, n) {
                         to: d
                     },
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, n)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_MEAL_STATUS_LOADING", {
                         childID: n,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     a("SET_CHILD_REPO_MEAL_STATUS_ITEMS", {
                         childID: n,
                         items: e
                     }), E && E()
                 })
             },
-            loadMeals: function(e, t) {
+            loadMeals: function (e, t) {
                 var a = e.commit,
                     n = t.childID,
                     o = t.date,
@@ -692,16 +691,16 @@ parcelRequire = function(e, r, t, n) {
                         to: c
                     },
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, n)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_MEALS_LOADING", {
                         childID: n,
                         date: o,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     var t = e.items;
                     a("SET_CHILD_REPO_MEALS_ITEMS", {
                         childID: n,
@@ -709,7 +708,7 @@ parcelRequire = function(e, r, t, n) {
                     }), _ && _()
                 })
             },
-            loadMealMenus: function(e, t) {
+            loadMealMenus: function (e, t) {
                 var a = e.commit,
                     n = t.childID,
                     o = t.date,
@@ -727,16 +726,16 @@ parcelRequire = function(e, r, t, n) {
                         to: _
                     },
                     dataType: "JSON",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, n)
                     }
-                }).always(function() {
+                }).always(function () {
                     a("SET_CHILD_REPO_MEAL_MENU_LOADING", {
                         childID: n,
                         date: o,
                         loaded: !0
                     })
-                }).done(function(e) {
+                }).done(function (e) {
                     var t = e.items;
                     a("SET_CHILD_REPO_MEAL_MENU_ITEMS", {
                         childID: n,
@@ -744,7 +743,7 @@ parcelRequire = function(e, r, t, n) {
                     })
                 })
             },
-            orderMenu: function(e, t) {
+            orderMenu: function (e, t) {
                 e.commit;
                 var a = t.childID,
                     n = t.date,
@@ -762,12 +761,12 @@ parcelRequire = function(e, r, t, n) {
                     }),
                     dataType: "JSON",
                     contentType: "application/json",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, a)
                     }
                 }).done(_).fail(E)
             },
-            cancleMeal: function(e, t) {
+            cancleMeal: function (e, t) {
                 e.commit;
                 var a = t.childID,
                     n = t.mealID,
@@ -778,42 +777,42 @@ parcelRequire = function(e, r, t, n) {
                     type: "DELETE",
                     dataType: "JSON",
                     contentType: "application/json",
-                    beforeSend: function(e) {
+                    beforeSend: function (e) {
                         return i(e, a)
                     }
                 }).done(o).fail(d)
             },
-            showSuccessMsg: function(e, t) {
+            showSuccessMsg: function (e, t) {
                 var a = t.msg,
                     n = t.timeout;
                 e.commit("SET_SUCCESS_MSG", {
                     msg: a,
                     show: !0
-                }), void 0 !== n && setTimeout(function() {
+                }), void 0 !== n && setTimeout(function () {
                     e.commit("SET_SUCCESS_MSG", {
                         show: !1
                     })
                 }, n)
             },
-            openVideokonferencaPopup: function(e, t) {
+            openVideokonferencaPopup: function (e, t) {
                 var a = t.videokonferenca;
                 e.state.videokonferenca = a
             },
-            hideVideokonferenca: function(e) {
+            hideVideokonferenca: function (e) {
                 e.state.videokonferenca = void 0
             },
-            loadIzpite: function(e) {
-                return e.commit("SET_IZPITI_LOADING", !0), new Promise(function(t) {
+            loadIzpite: function (e) {
+                return e.commit("SET_IZPITI_LOADING", !0), new Promise(function (t) {
                     $.ajax({
                         url: "/webapp/ajax_get_izpite",
                         type: "GET",
                         dataType: "JSON"
-                    }).done(function(a) {
+                    }).done(function (a) {
                         "ok" === a.status && (e.commit("SET_IZPITI_LOADING", !1), e.commit("SET_IZPITI_ODPRTE_PRIJAVE", a.data.odprte_prijave), e.commit("SET_IZPITI_PRIJAVLJENI_IZPITI", a.data.prijavljeni_izpiti), t())
                     })
                 })
             },
-            setShowMojAsistentBanner: function(e, t) {
+            setShowMojAsistentBanner: function (e, t) {
                 (0, e.commit)("SET_SHOW_MOJ_ASISTENT_BANNER", t), window.sessionStorage.setItem("showMojAsistentBanner", t)
             }
         };
@@ -822,20 +821,20 @@ parcelRequire = function(e, r, t, n) {
         "./getters": "7Dq7",
         "./auth": "bHdm"
     }],
-    "9k9P": [function(require, module, exports) {
+    "9k9P": [function (require, module, exports) {
         module.exports = {
-            SET_DATE: function(e, a) {
+            SET_DATE: function (e, a) {
                 var t = a.date,
                     i = a.type;
                 e.dates[i] = t
             },
-            SET_MENU_DATA: function(e, a) {
+            SET_MENU_DATA: function (e, a) {
                 Object.assign(e.menu, a)
             },
-            SET_USER_DATA: function(e, a) {
+            SET_USER_DATA: function (e, a) {
                 Object.assign(e.user, a)
             },
-            ADD_CHILD_REPO: function(e, a) {
+            ADD_CHILD_REPO: function (e, a) {
                 var t = a.childID;
                 Vue.set(e.childData, t, {
                     newsfeed: {
@@ -889,7 +888,7 @@ parcelRequire = function(e, r, t, n) {
                     }
                 })
             },
-            SET_CHILD_REPO_NEWSFEED_LOADING: function(e, a) {
+            SET_CHILD_REPO_NEWSFEED_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.page,
                     d = a.loaded,
@@ -899,24 +898,24 @@ parcelRequire = function(e, r, t, n) {
                     loaded: d
                 })
             },
-            ADD_CHILD_REPO_NEWSFEED_PAGE: function(e, a) {
+            ADD_CHILD_REPO_NEWSFEED_PAGE: function (e, a) {
                 var t = a.childID,
                     i = a.page,
                     d = a.items,
                     s = e.childData[t];
                 s.newsfeed.pages[i].items = d, s.newsfeed.pages[i].loaded = !0, s.newsfeed.page = i + 1
             },
-            SET_CHILD_REPO_HOMEWORK_LOADING: function(e, a) {
+            SET_CHILD_REPO_HOMEWORK_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.loaded;
                 e.childData[t].homework.loaded = i
             },
-            SET_CHILD_REPO_HOMEWORK_ITEMS: function(e, a) {
+            SET_CHILD_REPO_HOMEWORK_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.items;
                 e.childData[t].homework.items = i
             },
-            SET_CHILD_REPO_HOMEWORK_DETAILS: function(e, a) {
+            SET_CHILD_REPO_HOMEWORK_DETAILS: function (e, a) {
                 var t = a.item,
                     i = a.details,
                     d = a.open,
@@ -926,7 +925,7 @@ parcelRequire = function(e, r, t, n) {
                     items: null
                 }), void 0 !== i && (t.details.items = i), void 0 !== s && (t.details.open = s)
             },
-            SET_CHILD_REPO_SUBJECT_HOMEWORK_LOADING: function(e, a) {
+            SET_CHILD_REPO_SUBJECT_HOMEWORK_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.subjectID,
                     d = a.loaded,
@@ -936,23 +935,23 @@ parcelRequire = function(e, r, t, n) {
                     loaded: d
                 })
             },
-            SET_CHILD_REPO_SUBJECT_HOMEWORK_ITEMS: function(e, a) {
+            SET_CHILD_REPO_SUBJECT_HOMEWORK_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.subjectID,
                     d = a.items;
                 e.childData[t].homework.subjects[i].items = d
             },
-            SET_CHILD_REPO_GRADES_LOADING: function(e, a) {
+            SET_CHILD_REPO_GRADES_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.loaded;
                 e.childData[t].grades.loaded = i
             },
-            SET_CHILD_REPO_GRADES_ITEMS: function(e, a) {
+            SET_CHILD_REPO_GRADES_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.items;
                 e.childData[t].grades.items = i
             },
-            SET_CHILD_REPO_SUBJECT_GRADES_LOADING: function(e, a) {
+            SET_CHILD_REPO_SUBJECT_GRADES_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.subjectID,
                     d = a.loaded,
@@ -962,82 +961,82 @@ parcelRequire = function(e, r, t, n) {
                     loaded: d
                 })
             },
-            SET_CHILD_REPO_SUBJECT_GRADES_ITEMS: function(e, a) {
+            SET_CHILD_REPO_SUBJECT_GRADES_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.subjectID,
                     d = a.items;
                 e.childData[t].grades.subjects[i].items = d
             },
-            SET_CHILD_REPO_EVALUATIONS_TAB: function(e, a) {
+            SET_CHILD_REPO_EVALUATIONS_TAB: function (e, a) {
                 var t = a.childID,
                     i = a.type;
                 e.childData[t].evaluations.open = i
             },
-            SET_CHILD_REPO_EVALUATIONS_LOADING: function(e, a) {
+            SET_CHILD_REPO_EVALUATIONS_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.loaded,
                     d = a.type;
                 e.childData[t].evaluations[d].loaded = i
             },
-            SET_CHILD_REPO_EVALUATIONS_ITEMS: function(e, a) {
+            SET_CHILD_REPO_EVALUATIONS_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.items,
                     d = a.type;
                 e.childData[t].evaluations[d].items = i
             },
-            SET_CHILD_REPO_ABSENCES_LOADING: function(e, a) {
+            SET_CHILD_REPO_ABSENCES_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.loaded;
                 e.childData[t].absences.loaded = i
             },
-            SET_CHILD_REPO_ABSENCES_ITEMS: function(e, a) {
+            SET_CHILD_REPO_ABSENCES_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.items,
                     d = a.summary,
                     s = e.childData[t];
                 s.absences.summary = d, s.absences.items = i
             },
-            SET_CHILD_REPO_TIMETABLE_LOADING: function(e, a) {
+            SET_CHILD_REPO_TIMETABLE_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.loaded;
                 e.childData[t].timetable.loaded = i
             },
-            SET_CHILD_REPO_TIMETABLE_NO_DATA: function(e, a) {
+            SET_CHILD_REPO_TIMETABLE_NO_DATA: function (e, a) {
                 var t = a.childID,
                     i = a.noData;
                 e.childData[t].timetable.noData = i
             },
-            SET_CHILD_REPO_TIMETABLE_REQUEST: function(e, a) {
+            SET_CHILD_REPO_TIMETABLE_REQUEST: function (e, a) {
                 var t = a.childID,
                     i = a.request;
                 e.childData[t].timetable.request = i
             },
-            SET_CHILD_REPO_TIMETABLE_ITEMS: function(e, a) {
+            SET_CHILD_REPO_TIMETABLE_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.items;
                 e.childData[t].timetable.items = i
             },
-            SET_CHILD_REPO_X360_LOADING: function(e, a) {
+            SET_CHILD_REPO_X360_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.loaded;
                 e.childData[t].x360.loaded = i
             },
-            SET_CHILD_REPO_X360_ITEMS: function(e, a) {
+            SET_CHILD_REPO_X360_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.items;
                 e.childData[t].x360.items = i
             },
-            SET_CHILD_REPO_MEAL_STATUS_LOADING: function(e, a) {
+            SET_CHILD_REPO_MEAL_STATUS_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.loaded;
                 e.childData[t].mealStatus.loaded = i
             },
-            SET_CHILD_REPO_MEAL_STATUS_ITEMS: function(e, a) {
+            SET_CHILD_REPO_MEAL_STATUS_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.items;
                 e.childData[t].mealStatus.items = i
             },
-            SET_CHILD_REPO_MEALS_LOADING: function(e, a) {
+            SET_CHILD_REPO_MEALS_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.date,
                     d = a.loaded,
@@ -1047,15 +1046,15 @@ parcelRequire = function(e, r, t, n) {
                     loaded: d
                 })
             },
-            SET_CHILD_REPO_MEALS_ITEMS: function(e, a) {
+            SET_CHILD_REPO_MEALS_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.items,
                     d = e.childData[t];
-                i.forEach(function(e) {
+                i.forEach(function (e) {
                     d.meals[e.date].items.push(e)
                 })
             },
-            SET_CHILD_REPO_MEAL_MENU_LOADING: function(e, a) {
+            SET_CHILD_REPO_MEAL_MENU_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.date,
                     d = a.loaded,
@@ -1065,58 +1064,58 @@ parcelRequire = function(e, r, t, n) {
                     loaded: d
                 })
             },
-            SET_CHILD_REPO_MEAL_MENU_ITEMS: function(e, a) {
+            SET_CHILD_REPO_MEAL_MENU_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.items,
                     d = e.childData[t];
-                i.forEach(function(e) {
+                i.forEach(function (e) {
                     var a = e.date,
                         t = e.menus;
                     d.mealMenus[a].items = t
                 })
             },
-            SET_CHILD_REPO_CONSENT_LOADING: function(e, a) {
+            SET_CHILD_REPO_CONSENT_LOADING: function (e, a) {
                 var t = a.childID,
                     i = a.loaded;
                 e.childData[t].consent.loaded = i
             },
-            SET_CHILD_REPO_CONSENT_ITEMS: function(e, a) {
+            SET_CHILD_REPO_CONSENT_ITEMS: function (e, a) {
                 var t = a.childID,
                     i = a.items;
                 e.childData[t].consent.items = i
             },
-            SET_CHILD_REPO_CONSENT_ITEM_STATUS: function(e, a) {
+            SET_CHILD_REPO_CONSENT_ITEM_STATUS: function (e, a) {
                 var t = a.childID,
                     i = a.status,
                     d = a.type;
-                e.childData[t].consent.items.forEach(function(e) {
+                e.childData[t].consent.items.forEach(function (e) {
                     e.type === d && (e.status = i)
                 })
             },
-            SET_UNREAD_NOTIFICATIONS_COUNT: function(e, a) {
+            SET_UNREAD_NOTIFICATIONS_COUNT: function (e, a) {
                 e.notifications.unread_messages = a
             },
-            SET_SUCCESS_MSG: function(e, a) {
+            SET_SUCCESS_MSG: function (e, a) {
                 var t = a.msg,
                     i = void 0 === t ? "" : t,
                     d = a.show;
                 e.success_msg.msg = i, e.success_msg.show = d
             },
-            SET_IZPITI_LOADING: function(e, a) {
+            SET_IZPITI_LOADING: function (e, a) {
                 e.izpiti.loading = a
             },
-            SET_IZPITI_PRIJAVLJENI_IZPITI: function(e, a) {
+            SET_IZPITI_PRIJAVLJENI_IZPITI: function (e, a) {
                 e.izpiti.prijavljeni_izpiti = a
             },
-            SET_IZPITI_ODPRTE_PRIJAVE: function(e, a) {
+            SET_IZPITI_ODPRTE_PRIJAVE: function (e, a) {
                 e.izpiti.odprte_prijave = a
             },
-            SET_SHOW_MOJ_ASISTENT_BANNER: function(e, a) {
+            SET_SHOW_MOJ_ASISTENT_BANNER: function (e, a) {
                 e.showMojAsistentBanner = a
             }
         };
     }, {}],
-    "dW/X": [function(require, module, exports) {
+    "dW/X": [function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", {
             value: !0
@@ -1128,31 +1127,31 @@ parcelRequire = function(e, r, t, n) {
                 soglasja: []
             },
             mutations: {
-                SET_LOADING: function(a, o) {
+                SET_LOADING: function (a, o) {
                     a.loading = o
                 },
-                SET_SOGLASJA: function(a, o) {
+                SET_SOGLASJA: function (a, o) {
                     a.soglasja = o
                 }
             },
             actions: {
-                nalozi: function(a) {
-                    return new Promise(function(o) {
+                nalozi: function (a) {
+                    return new Promise(function (o) {
                         a.commit("SET_LOADING", !0), $.ajax({
                             url: "/webapp/get_moja_soglasja",
                             type: "GET",
                             dataType: "JSON"
-                        }).always(function() {
+                        }).always(function () {
                             a.commit("SET_LOADING", !1)
-                        }).done(function(e) {
+                        }).done(function (e) {
                             a.commit("SET_SOGLASJA", e.data), o()
                         })
                     })
                 },
-                oddaj_soglasje: function(a, o) {
+                oddaj_soglasje: function (a, o) {
                     var e = o.soglasje_id,
                         t = o.sklopi;
-                    return new Promise(function(a, o) {
+                    return new Promise(function (a, o) {
                         $.ajax({
                             url: "/webapp/oddaj_soglasje/" + e,
                             data: {
@@ -1160,9 +1159,9 @@ parcelRequire = function(e, r, t, n) {
                             },
                             type: "POST",
                             dataType: "JSON"
-                        }).done(function(e) {
+                        }).done(function (e) {
                             "ok" === e.status ? a(e) : o(e.errfields || ["Prišlo je do napake."])
-                        }).fail(function(a) {
+                        }).fail(function (a) {
                             o(["Prišlo je do napake."])
                         })
                     })
@@ -1171,7 +1170,7 @@ parcelRequire = function(e, r, t, n) {
         };
         exports.soglasja = a;
     }, {}],
-    "Yl/s": [function(require, module, exports) {
+    "Yl/s": [function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", {
             value: !0
@@ -1206,7 +1205,7 @@ parcelRequire = function(e, r, t, n) {
         "./app/vuex/mutations": "9k9P",
         "./app/vuex/modules/soglasja": "dW/X"
     }],
-    "ByJG": [function(require, module, exports) {
+    "ByJG": [function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", {
             value: !0
@@ -1221,100 +1220,100 @@ parcelRequire = function(e, r, t, n) {
         var n = new e.default({
             routes: [{
                 path: "/feed",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/feed"))
                 }
             }, {
                 path: "/izpiti",
                 name: "izpiti",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/izpiti/IzpitiHome.vue"))
                 }
             }, {
                 path: "/izpiti/:id_izpit/uredi",
                 name: "izpit_uredi",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/izpiti/IzpitiEdit.vue"))
                 }
             }, {
                 path: "/grades",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/grades"))
                 }
             }, {
                 path: "/grades/subject/:id/:grade_id?",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/subject_grades"))
                 }
             }, {
                 path: "/absences",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/absences"))
                 }
             }, {
                 path: "/absences_basic",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/absences_basic"))
                 }
             }, {
                 path: "/examinations",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/examinations"))
                 }
             }, {
                 path: "/examinations_basic",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/examinations_basic"))
                 }
             }, {
                 path: "/calendar",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/calendar"))
                 }
             }, {
                 path: "/videokonferenca/:id",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/videokonferenca"))
                 }
             }, {
                 path: "/homework",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/homework"))
                 }
             }, {
                 path: "/homework/subject/:id/:homework_id?",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/subject_homework"))
                 }
             }, {
                 path: "/x360",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/x360"))
                 }
             }, {
                 path: "/food",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/food"))
                 }
             }, {
                 path: "/food/order/:type",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/food_order"))
                 }
             }, {
                 path: "/consent",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/consent"))
                 }
             }, {
                 path: "/consent/list",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/consent_list"))
                 }
             }, {
                 path: "/consent/list/:id",
                 name: "consent_list_item",
-                component: function() {
+                component: function () {
                     return require("_bundle_loader")(require.resolve("./app/containers/consent_item"))
                 }
             }, {
@@ -1384,13 +1383,13 @@ parcelRequire = function(e, r, t, n) {
             ["consent_item.e4e66434.js", "Y1OV"], "Y1OV"
         ]
     }],
-    "t9SC": [function(require, module, exports) {
-        var e = function(e) {
+    "t9SC": [function (require, module, exports) {
+        var e = function (e) {
             return e < 10 ? "0" + e : e
         };
         module.exports = {
             template: "#parent-app-trial-version-temp",
-            data: function() {
+            data: function () {
                 return {
                     end_time: null,
                     now: null,
@@ -1399,79 +1398,79 @@ parcelRequire = function(e, r, t, n) {
             },
             props: ["mobile"],
             computed: {
-                child: function(e) {
+                child: function (e) {
                     return e.$store.getters.user.activeChild
                 },
-                days: function(e) {
+                days: function (e) {
                     var n = e.distance;
                     return Math.floor(n / 864e5)
                 },
-                hours: function(n) {
+                hours: function (n) {
                     var t = n.distance;
                     return e(Math.floor(t % 864e5 / 36e5))
                 },
-                minutes: function(n) {
+                minutes: function (n) {
                     var t = n.distance;
                     return e(Math.floor(t % 36e5 / 6e4))
                 },
-                seconds: function(n) {
+                seconds: function (n) {
                     var t = n.distance;
                     return e(Math.floor(t % 6e4 / 1e3))
                 }
             },
-            mounted: function() {
+            mounted: function () {
                 this.getTrialVersionEndTime()
             },
             methods: {
-                getTrialVersionEndTime: function() {
+                getTrialVersionEndTime: function () {
                     var e = this;
-                    e.child.notifications.forEach(function(n) {
+                    e.child.notifications.forEach(function (n) {
                         "request_plus" === n.type && (e.end_time = new Date(n.end_time).getTime(), e.countdownTimer())
                     })
                 },
-                countdownTimer: function() {
+                countdownTimer: function () {
                     var e = this,
-                        n = setInterval(function() {
+                        n = setInterval(function () {
                             e.now = (new Date).getTime(), e.distance = e.end_time - e.now, e.distance < 0 && (clearInterval(n), window.location.reload())
                         }, 1e3)
                 }
             }
         };
     }, {}],
-    "uQyI": [function(require, module, exports) {
+    "uQyI": [function (require, module, exports) {
         module.exports = {
             template: "#parent-app-poll-subheader-temp",
-            data: function() {
+            data: function () {
                 return {
                     active: !1
                 }
             },
             props: ["text", "url"],
             computed: {
-                child: function(e) {
+                child: function (e) {
                     return e.$store.getters.user.activeChild
                 },
-                visible: function(e) {
+                visible: function (e) {
                     var t = e.active,
                         r = e.child;
                     return t && r && r.plus_enabled
                 }
             },
-            mounted: function() {},
+            mounted: function () { },
             methods: {}
         };
     }, {}],
-    "Y73j": [function(require, module, exports) {
+    "Y73j": [function (require, module, exports) {
         module.exports = {
             template: "#app-header-temp",
             computed: {
-                user: function() {
+                user: function () {
                     return this.$store.getters.user
                 },
-                showActivation: function() {
+                showActivation: function () {
                     return this.$store.getters.showActivation
                 },
-                unreadCount: function() {
+                unreadCount: function () {
                     return this.$store.state.notifications.unread_messages
                 }
             },
@@ -1484,7 +1483,7 @@ parcelRequire = function(e, r, t, n) {
         "./containers/trial_version": "t9SC",
         "./containers/poll_subheader": "uQyI"
     }],
-    "+oa3": [function(require, module, exports) {
+    "+oa3": [function (require, module, exports) {
         module.exports = {
             template: "#app-menu-temp",
             components: {
@@ -1492,16 +1491,16 @@ parcelRequire = function(e, r, t, n) {
                     template: "#child-select-option-temp",
                     props: ["child", "active"],
                     computed: {
-                        time: function(e) {
-                            var t = e.child.timetable.hours.filter(function(e) {
+                        time: function (e) {
+                            var t = e.child.timetable.hours.filter(function (e) {
                                 return "school_hour" === e.type
                             });
                             return t.length > 0 ? {
-                                from: t.reduce(function(e, t) {
+                                from: t.reduce(function (e, t) {
                                     var n = t.from;
                                     return (n < e ? n : e) || n
                                 }, !1).substr(11, 5),
-                                to: t.reduce(function(e, t) {
+                                to: t.reduce(function (e, t) {
                                     var n = t.to;
                                     return (n > e ? n : e) || n
                                 }, !1).substr(11, 5)
@@ -1511,20 +1510,20 @@ parcelRequire = function(e, r, t, n) {
                 }
             },
             computed: {
-                user: function(e) {
+                user: function (e) {
                     return e.$store.getters.user
                 },
-                menu: function(e) {
+                menu: function (e) {
                     return e.$store.getters.menu
                 },
-                child: function(e) {
+                child: function (e) {
                     return e.$store.getters.child
                 },
-                absenceRoute: function(e) {
+                absenceRoute: function (e) {
                     var t = e.child;
                     return t && t.plus_enabled ? "/absences" : "/absences_basic"
                 },
-                menuItems: function() {
+                menuItems: function () {
                     //*-----------------------------------------------------------------------
                     if (document.body.parentElement.classList.contains('extend'))
                         return {
@@ -1540,26 +1539,26 @@ parcelRequire = function(e, r, t, n) {
                             "communication": true,
                         }
                     //*-----------------------------------------------------------------------
-                    return this.menu.items.reduce(function(e, t) {
+                    return this.menu.items.reduce(function (e, t) {
                         return e[t] = !0, e
                     }, {})
                 },
-                unreadCount: function() {
+                unreadCount: function () {
                     return this.$store.state.notifications.unread_messages
                 }
             }
         };
     }, {}],
-    "chE5": [function(require, module, exports) {
+    "chE5": [function (require, module, exports) {
         var i = require("../../libs/ea_utils"),
             n = i.getOS;
         module.exports = {
             template: '\n        <div class="app-download-btn-group">\n            <a v-if="isAndroid" href="/android" class="android"><img src="/images/buttons/android.png"></a><a v-if="isIOS" href="/iphone" class="ios"><img src="/images/buttons/ios.png"></a>\n        </div>\n    ',
             computed: {
-                isAndroid: function() {
+                isAndroid: function () {
                     return "android" === n() || null === n()
                 },
-                isIOS: function() {
+                isIOS: function () {
                     return "ios" === n() || null === n()
                 }
             }
@@ -1567,37 +1566,37 @@ parcelRequire = function(e, r, t, n) {
     }, {
         "../../libs/ea_utils": "s7Qj"
     }],
-    "yuEt": [function(require, module, exports) {
+    "yuEt": [function (require, module, exports) {
         var e = "/images/dijaki_stars_app/";
         module.exports = {
             template: "#parent-app-banner-temp",
             computed: {
-                url: function(e) {
+                url: function (e) {
                     return e.$route.fullPath
                 },
-                text: function(e) {
+                text: function (e) {
                     return e.getContent("text")
                 },
-                image: function(e) {
+                image: function (e) {
                     return e.getContent("image")
                 }
             },
             components: {
                 "app-download-btn": require("./app_download_btn")
             },
-            mounted: function() {
+            mounted: function () {
                 $(this.$el).find(".bubble-text").outerHeight() > 180 ? $(this.$el).find(".bubble-text").css("width", "330px") : $(this.$el).find(".bubble-text").css("width", "310px")
             },
-            updated: function() {
+            updated: function () {
                 $(this.$el).find(".bubble-text").outerHeight() > 180 ? $(this.$el).find(".bubble-text").css("width", "330px") : $(this.$el).find(".bubble-text").css("width", "310px")
             },
             methods: {
-                getContent: function(n) {
+                getContent: function (n) {
                     var t = !1,
                         o = this.url;
                     return o.indexOf("/") > -1 && (o = "/" + o.split("/")[1]), "/x360" === o ? t = "text" === n ? "Vse <strong>pohvale</strong>, potrebne izboljšave in komentarje si lahko pogledaš v <strong>aplikaciji</strong>." : e + "phone-x360-ea.png" : "/absences" === o || "/absences_basic" === o ? t = "text" === n ? "Ali veš koliko izostankov imaš? <strong>Poglej si v aplikaciji</strong>." : e + "phone-izostanki-ea.png" : "/examinations" === o || "/examinations_basic" === o ? t = "text" === n ? "Aplikacija ti ponuja pregled nad <strong>prihodnjimi</strong> in preteklimi ocenjevanji znanja." : e + "phone-ocenjevanje-znanja-ea.png" : "/grades" === o ? t = "text" === n ? "Želiš <strong>enostaven</strong> pregled nad vsemi ocenami na enem mestu?" : e + "phone-ocene-ea.png" : "/homework" === o ? t = "text" === n ? "Ali veš, da so <strong>v aplikaciji</strong> podrobnosti vpisanih domačih nalog?" : e + "phone-naloge-ea.png" : "/food" === o ? t = "text" === n ? "V aplikaciji lahko <strong>enostavno</strong> in <strong>hitro</strong> urediš svojo prijavo na obrok." : e + "phone-prehrana-ea.gif" : "/calendar" === o && (t = "text" === n ? "Z <strong>mobilno aplikacijo</strong> ti je urnik vedno pri roki. <strong>Hitro</strong> lahko pogledaš vsa nadomeščanja in ostale dogodke." : e + "phone-urnik.png"), t
                 },
-                getOS: function() {
+                getOS: function () {
                     var e = navigator.userAgent || navigator.vendor || window.opera;
                     return /android/i.test(e) ? "android" : /iPad|iPhone|iPod/.test(e) && !window.MSStream ? "ios" : null
                 }
@@ -1606,7 +1605,7 @@ parcelRequire = function(e, r, t, n) {
     }, {
         "./app_download_btn": "chE5"
     }],
-    "IjgZ": [function(require, module, exports) {
+    "IjgZ": [function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", {
             value: !0
@@ -1632,47 +1631,47 @@ parcelRequire = function(e, r, t, n) {
                 store: e.store,
                 router: t.router,
                 computed: {
-                    user: function(e) {
+                    user: function (e) {
                         return e.$store.getters.user
                     },
-                    menu: function(e) {
+                    menu: function (e) {
                         return e.$store.getters.menu
                     },
-                    child: function(e) {
+                    child: function (e) {
                         return e.$store.getters.user.activeChild
                     },
-                    showBanner: function(e) {
+                    showBanner: function (e) {
                         return e.$store.getters.showBanner
                     },
-                    showTrialStartBanner: function(e) {
+                    showTrialStartBanner: function (e) {
                         return e.$store.getters.showTrialStartBanner
                     },
-                    trialRunning: function(e) {
+                    trialRunning: function (e) {
                         return e.$store.getters.trialRunning
                     },
-                    showAppDownload: function() {
+                    showAppDownload: function () {
                         return this.$store.getters.showAppDownload && "consent_list_item" !== this.$route.name
                     },
-                    videokonferenca: function() {
+                    videokonferenca: function () {
                         return this.$store.state.videokonferenca
                     },
-                    success_msg: function() {
+                    success_msg: function () {
                         return this.$store.state.success_msg
                     }
                 },
                 methods: {
-                    hideTrialStartBanner: function() {
+                    hideTrialStartBanner: function () {
                         this.$store.dispatch("hideTrialStartBanner")
                     },
-                    hideVideokonferenca: function() {
+                    hideVideokonferenca: function () {
                         this.$store.dispatch("hideVideokonferenca")
                     }
                 },
-                mounted: function() {
+                mounted: function () {
                     var e = this;
                     $(this.$el).removeClass("hidden"), this.menu.loaded || (this.$store.dispatch("loadAppMenu"), this.$store.dispatch("loadNotifications")), this.$store.dispatch("setUserData", {
                         type: "student"
-                    }), this.$store.dispatch("loadMeChild", function(t) {
+                    }), this.$store.dispatch("loadMeChild", function (t) {
                         e.$store.dispatch("setUserData", {
                             activeChild: t
                         }), e.$store.dispatch("addChildRepository", t.id)
@@ -1685,7 +1684,7 @@ parcelRequire = function(e, r, t, n) {
             router: t.router,
             checkDuplicatedScript: !0,
             autoTracking: {
-                pageviewTemplate: function(e) {
+                pageviewTemplate: function (e) {
                     return {
                         page: window.location.pathname + "#" + e.path,
                         title: "Webapp",
@@ -1706,7 +1705,7 @@ parcelRequire = function(e, r, t, n) {
         "./app/menu": "+oa3",
         "../global/vue-runtime-components/ads/banner": "yuEt"
     }],
-    "kB/C": [function(require, module, exports) {
+    "kB/C": [function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", {
             value: !0
@@ -1733,25 +1732,25 @@ parcelRequire = function(e, r, t, n) {
                 EaModal: t.default
             },
             methods: {
-                set_modal: function(e) {
+                set_modal: function (e) {
                     this.loading || (this.modal = e)
                 },
-                potrdi: function() {
+                potrdi: function () {
                     var a = this;
                     this.loading || (this.loading = !0, $.ajax({
                         url: "/webapp/ajax_izpiti_ne_bom_sodeloval/" + this.id_izpit,
                         type: "POST",
                         dataType: "JSON"
-                    }).fail(function() {
+                    }).fail(function () {
                         a.loading = !1, e.default.error(i.AJAX_ERROR)
-                    }).done(function(t) {
+                    }).done(function (t) {
                         a.loading = !1, (0, i.check_rsp)(t, !1) ? (e.default.success("Prijavnica oddana."), a.$router.push({
                             name: "izpiti"
                         }), a.$store.dispatch("loadIzpite")) : e.default.error(t.errfields[0] || i.AJAX_ERROR)
                     }))
                 }
             },
-            data: function() {
+            data: function () {
                 return {
                     loading: !1,
                     modal: !1
@@ -1759,10 +1758,10 @@ parcelRequire = function(e, r, t, n) {
             }
         };
         exports.default = r;
-        (function() {
+        (function () {
             var t = exports.default || module.exports;
             "function" == typeof t && (t = t.options), Object.assign(t, {
-                render: function() {
+                render: function () {
                     var t = this,
                         a = t.$createElement,
                         n = t._self._c || a;
@@ -1772,7 +1771,7 @@ parcelRequire = function(e, r, t, n) {
                             href: "javascript:;"
                         },
                         on: {
-                            click: function(a) {
+                            click: function (a) {
                                 t.modal = !0
                             }
                         }
@@ -1802,7 +1801,7 @@ parcelRequire = function(e, r, t, n) {
                             loading: t.loading
                         },
                         nativeOn: {
-                            click: function(a) {
+                            click: function (a) {
                                 return t.potrdi.apply(null, arguments)
                             }
                         }
@@ -1813,7 +1812,7 @@ parcelRequire = function(e, r, t, n) {
                             disabled: t.loading
                         },
                         nativeOn: {
-                            click: function(a) {
+                            click: function (a) {
                                 t.modal = !1
                             }
                         }
@@ -1831,7 +1830,7 @@ parcelRequire = function(e, r, t, n) {
         "../../../global/ea-components/EaModal.vue": "HEpv",
         "../../../global/libs/ea_utils": "s7Qj"
     }],
-    "dzse": [function(require, module, exports) {
+    "dzse": [function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", {
             value: !0
@@ -1850,9 +1849,9 @@ parcelRequire = function(e, r, t, n) {
             for (var o = 1; o < arguments.length; o++) {
                 var t = null != arguments[o] ? arguments[o] : {},
                     i = Object.keys(t);
-                "function" == typeof Object.getOwnPropertySymbols && (i = i.concat(Object.getOwnPropertySymbols(t).filter(function(e) {
+                "function" == typeof Object.getOwnPropertySymbols && (i = i.concat(Object.getOwnPropertySymbols(t).filter(function (e) {
                     return Object.getOwnPropertyDescriptor(t, e).enumerable
-                }))), i.forEach(function(o) {
+                }))), i.forEach(function (o) {
                     n(e, o, t[o])
                 })
             }
@@ -1880,13 +1879,13 @@ parcelRequire = function(e, r, t, n) {
                 NeBomSodelovalPopup: o.default
             },
             computed: {
-                odprte_prijave: function() {
+                odprte_prijave: function () {
                     var e = this,
                         o = this.$store.state.izpiti.odprte_prijave.slice();
-                    return this.samo_brez_odziva && (o = o.filter(function(e) {
+                    return this.samo_brez_odziva && (o = o.filter(function (e) {
                         return "brez_odziva" === e.status
-                    })), o = o.map(function(o) {
-                        var i = function() {
+                    })), o = o.map(function (o) {
+                        var i = function () {
                             var i = o.status;
                             if ("pridem" === i) return e.$store.getters.child_is_female ? "Uspešno si oddala prijavnico na izpite. O terminih boš obveščena, ko bodo določeni." : "Uspešno si oddal prijavnico na izpite. O terminih boš obveščen, ko bodo določeni.";
                             if ("ne_pridem" === i) return "Tvoja izbira: NE ŽELIM SE PRIJAVITI";
@@ -1901,16 +1900,16 @@ parcelRequire = function(e, r, t, n) {
             }
         };
         exports.default = a;
-        (function() {
+        (function () {
             var i = exports.default || module.exports;
             "function" == typeof i && (i = i.options), Object.assign(i, {
-                render: function() {
+                render: function () {
                     var i = this,
                         t = i.$createElement,
                         a = i._self._c || t;
                     return i.odprte_prijave.length > 0 ? a("div", [a("div", {
                         staticClass: "subtitle"
-                    }, [i._v("PRIJAVA NA IZPITE")]), i._v(" "), i._l(i.odprte_prijave, function(t) {
+                    }, [i._v("PRIJAVA NA IZPITE")]), i._v(" "), i._l(i.odprte_prijave, function (t) {
                         return a("div", {
                             key: t.id_izpit,
                             staticClass: "paper-panel paper-panel-izpit",
@@ -1960,22 +1959,22 @@ parcelRequire = function(e, r, t, n) {
         "./NeBomSodelovalPopup.vue": "kB/C",
         "../../../global/libs/ea_utils": "s7Qj"
     }],
-    "9R0v": [function(require, module, exports) {
+    "9R0v": [function (require, module, exports) {
         var t = require("moment");
         module.exports = {
             template: "#date-icon-temp",
             props: ["date", "warning"],
             computed: {
-                momentDate: function(e) {
+                momentDate: function (e) {
                     return t(e.date)
                 },
-                day: function(t) {
+                day: function (t) {
                     return t.momentDate.format("D")
                 },
-                month: function(t) {
+                month: function (t) {
                     return t.momentDate.format("MMM").toUpperCase().replace(".", "")
                 },
-                countdown: function(e) {
+                countdown: function (e) {
                     var n = Math.ceil(e.momentDate.diff(t(), "days", !0));
                     return n > -1 && n < 14 && n
                 }
@@ -1984,7 +1983,7 @@ parcelRequire = function(e, r, t, n) {
     }, {
         "moment": "iROh"
     }],
-    "FCqt": [function(require, module, exports) {
+    "FCqt": [function (require, module, exports) {
         var e = require("moment");
         module.exports = {
             template: "#evaluation-panel-temp",
@@ -1993,11 +1992,11 @@ parcelRequire = function(e, r, t, n) {
                 "date-icon": require("../dateicon")
             },
             computed: {
-                evaluationDate: function(t) {
+                evaluationDate: function (t) {
                     var a = e(t.evaluation.date, "YYYY-MM-DD");
                     return ["Ponedeljek", "Torek", "Sreda", "Četrtek", "Petek", "Sobota", "Nedelja"][e(a).format("d") - 1] + ", " + a.format("D. M. YYYY")
                 },
-                testText: function(e) {
+                testText: function (e) {
                     return e.evaluation.test ? "Preverjanje" : "Ocenjevanje"
                 }
             },
@@ -2007,7 +2006,7 @@ parcelRequire = function(e, r, t, n) {
         "moment": "iROh",
         "../dateicon": "9R0v"
     }],
-    "DNQk": [function(require, module, exports) {
+    "DNQk": [function (require, module, exports) {
         var e = require("moment");
         module.exports = {
             template: "#evaluation-group-temp",
@@ -2016,16 +2015,16 @@ parcelRequire = function(e, r, t, n) {
                 "evaluation-panel": require("./evaluation_panel")
             },
             computed: {
-                isThisWeek: function(t) {
+                isThisWeek: function (t) {
                     return e().week() === t.week
                 },
-                isNextWeek: function(t) {
+                isNextWeek: function (t) {
                     return e().week() + 1 === t.week
                 },
-                isArbitraryWeek: function(e) {
+                isArbitraryWeek: function (e) {
                     return !e.isThisWeek && !e.isNextWeek
                 },
-                weekDates: function(t) {
+                weekDates: function (t) {
                     return {
                         start: e().week(t.week).startOf("isoweek").format("D. M."),
                         end: e().week(t.week).endOf("isoweek").format("D. M.")
@@ -2038,7 +2037,7 @@ parcelRequire = function(e, r, t, n) {
         "moment": "iROh",
         "./evaluation_panel": "FCqt"
     }],
-    "TCWs": [function(require, module, exports) {
+    "TCWs": [function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", {
             value: !0
@@ -2057,21 +2056,21 @@ parcelRequire = function(e, r, t, n) {
                 EaBtn: e.default
             },
             computed: {
-                name: function() {
+                name: function () {
                     return this.$store.getters.child ? this.$store.getters.child.display_name : ""
                 }
             },
             methods: {
-                close_banner: function() {
+                close_banner: function () {
                     this.$store.dispatch("setShowMojAsistentBanner", !1)
                 }
             }
         };
         exports.default = o;
-        (function() {
+        (function () {
             var a = exports.default || module.exports;
             "function" == typeof a && (a = a.options), Object.assign(a, {
-                render: function() {
+                render: function () {
                     var a = this,
                         t = a.$createElement,
                         s = a._self._c || t;
@@ -2120,7 +2119,7 @@ parcelRequire = function(e, r, t, n) {
                         }
                     })])
                 },
-                staticRenderFns: [function() {
+                staticRenderFns: [function () {
                     var a = this.$createElement,
                         t = this._self._c || a;
                     return t("div", {
@@ -2131,13 +2130,13 @@ parcelRequire = function(e, r, t, n) {
                             src: "/js/build/potovanje.fbb179fa.png"
                         }
                     })])
-                }, function() {
+                }, function () {
                     var a = this.$createElement,
                         t = this._self._c || a;
                     return t("strong", {
                         staticClass: "font-14"
                     }, [this._v(" nova mobilna aplikacija mojAsistent je sedaj na voljo vsem, tudi tebi."), t("br"), this._v(" PRENESI SI JO: ")])
-                }, function() {
+                }, function () {
                     var a = this.$createElement,
                         t = this._self._c || a;
                     return t("div", {
@@ -2161,7 +2160,7 @@ parcelRequire = function(e, r, t, n) {
             ["vesolje-vzorec.f5a8f5b6.png", "qpc9"], "qpc9"
         ]
     }],
-    "nx1W": [function(require, module, exports) {
+    "nx1W": [function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", {
             value: !0
@@ -2179,13 +2178,13 @@ parcelRequire = function(e, r, t, n) {
                 }
             },
             computed: {
-                prijavno_obdobje: function() {
+                prijavno_obdobje: function () {
                     var e = this.predmet.id_izpit;
-                    return this.$store.state.izpiti.odprte_prijave.find(function(i) {
+                    return this.$store.state.izpiti.odprte_prijave.find(function (i) {
                         return i.id_izpit == e
                     })
                 },
-                uredi_route: function() {
+                uredi_route: function () {
                     var e = this.predmet.id_izpit;
                     if (void 0 !== this.prijavno_obdobje) return {
                         name: "izpit_uredi",
@@ -2197,10 +2196,10 @@ parcelRequire = function(e, r, t, n) {
             }
         };
         exports.default = e;
-        (function() {
+        (function () {
             var t = exports.default || module.exports;
             "function" == typeof t && (t = t.options), Object.assign(t, {
-                render: function() {
+                render: function () {
                     var t = this,
                         s = t.$createElement,
                         a = t._self._c || s;
@@ -2225,7 +2224,7 @@ parcelRequire = function(e, r, t, n) {
             });
         })();
     }, {}],
-    "Ibhm": [function(require, module, exports) {
+    "Ibhm": [function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", {
             value: !0
@@ -2248,14 +2247,14 @@ parcelRequire = function(e, r, t, n) {
                 }
             },
             computed: {
-                list: function() {
+                list: function () {
                     var e = 1,
                         t = [];
-                    return this.predmeti.forEach(function(r) {
+                    return this.predmeti.forEach(function (r) {
                         0 === r.skupine.length ? t.push({
                             predmet: r,
                             key: e++
-                        }) : r.skupine.forEach(function(u) {
+                        }) : r.skupine.forEach(function (u) {
                             t.push({
                                 predmet: r,
                                 skupina: u,
@@ -2267,15 +2266,15 @@ parcelRequire = function(e, r, t, n) {
             }
         };
         exports.default = r;
-        (function() {
+        (function () {
             var t = exports.default || module.exports;
             "function" == typeof t && (t = t.options), Object.assign(t, {
-                render: function() {
+                render: function () {
                     var t = this.$createElement,
                         e = this._self._c || t;
                     return e("div", {
                         staticClass: "paper-panel"
-                    }, this._l(this.list, function(t) {
+                    }, this._l(this.list, function (t) {
                         return e("div", {
                             key: t.key,
                             staticClass: "paper-panel-item"
@@ -2296,7 +2295,7 @@ parcelRequire = function(e, r, t, n) {
     }, {
         "./PrijavljenIzpitListItem.vue": "nx1W"
     }],
-    "5ghE": [function(require, module, exports) {
+    "5ghE": [function (require, module, exports) {
         var t = null;
 
         function e() {
@@ -2318,7 +2317,7 @@ parcelRequire = function(e, r, t, n) {
         }
         exports.getBundleURL = e, exports.getBaseURL = r;
     }, {}],
-    "TVvX": [function(require, module, exports) {
+    "TVvX": [function (require, module, exports) {
         var r = require("./bundle-url").getBundleURL;
 
         function e(r) {
@@ -2327,8 +2326,8 @@ parcelRequire = function(e, r, t, n) {
             try {
                 return Promise.resolve(require(e))
             } catch (n) {
-                if ("MODULE_NOT_FOUND" === n.code) return new s(function(n, i) {
-                    t(r.slice(0, -1)).then(function() {
+                if ("MODULE_NOT_FOUND" === n.code) return new s(function (n, i) {
+                    t(r.slice(0, -1)).then(function () {
                         return require(e)
                     }).then(n, i)
                 });
@@ -2352,9 +2351,9 @@ parcelRequire = function(e, r, t, n) {
             if (Array.isArray(e) && (t = e[1], e = e[0]), o[e]) return o[e];
             var i = (e.substring(e.lastIndexOf(".") + 1, e.length) || e).toLowerCase(),
                 u = n[i];
-            return u ? o[e] = u(r() + e).then(function(r) {
+            return u ? o[e] = u(r() + e).then(function (r) {
                 return r && module.bundle.register(t, r), r
-            }).catch(function(r) {
+            }).catch(function (r) {
                 throw delete o[e], r
             }) : void 0
         }
@@ -2362,43 +2361,43 @@ parcelRequire = function(e, r, t, n) {
         function s(r) {
             this.executor = r, this.promise = null
         }
-        s.prototype.then = function(r, e) {
+        s.prototype.then = function (r, e) {
             return null === this.promise && (this.promise = new Promise(this.executor)), this.promise.then(r, e)
-        }, s.prototype.catch = function(r) {
+        }, s.prototype.catch = function (r) {
             return null === this.promise && (this.promise = new Promise(this.executor)), this.promise.catch(r)
         };
     }, {
         "./bundle-url": "5ghE"
     }],
-    "+D+R": [function(require, module, exports) {
-        module.exports = function(n) {
-            return new Promise(function(e, o) {
+    "+D+R": [function (require, module, exports) {
+        module.exports = function (n) {
+            return new Promise(function (e, o) {
                 var r = document.createElement("script");
-                r.async = !0, r.type = "text/javascript", r.charset = "utf-8", r.src = n, r.onerror = function(n) {
+                r.async = !0, r.type = "text/javascript", r.charset = "utf-8", r.src = n, r.onerror = function (n) {
                     r.onerror = r.onload = null, o(n)
-                }, r.onload = function() {
+                }, r.onload = function () {
                     r.onerror = r.onload = null, e()
                 }, document.getElementsByTagName("head")[0].appendChild(r)
             })
         };
     }, {}],
-    "efps": [function(require, module, exports) {
-        module.exports = function(e) {
-            return new Promise(function(n, o) {
+    "efps": [function (require, module, exports) {
+        module.exports = function (e) {
+            return new Promise(function (n, o) {
                 var r = document.createElement("link");
-                r.rel = "stylesheet", r.href = e, r.onerror = function(e) {
+                r.rel = "stylesheet", r.href = e, r.onerror = function (e) {
                     r.onerror = r.onload = null, o(e)
-                }, r.onload = function() {
+                }, r.onload = function () {
                     r.onerror = r.onload = null, n()
                 }, document.getElementsByTagName("head")[0].appendChild(r)
             })
         };
     }, {}],
-    0: [function(require, module, exports) {
+    0: [function (require, module, exports) {
         var b = require("TVvX");
         b.register("js", require("+D+R"));
         b.register("css", require("efps"));
-        b.load([]).then(function() {
+        b.load([]).then(function () {
             require("IjgZ");
         });
     }, {}]
