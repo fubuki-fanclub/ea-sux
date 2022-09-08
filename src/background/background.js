@@ -2,7 +2,6 @@ let overridePlus = false;
 
 chrome.storage.sync.get(['plus'], a => {
     overridePlus = a.plus;
-    console.log({ a });
 })
 
 function settingsChanged() {
@@ -13,7 +12,6 @@ function settingsChanged() {
 
 
 chrome.webRequest.onHeadersReceived.addListener(info => {
-    console.log({ url: chrome.runtime.getURL("student_app.js") });
     return overridePlus ? {
         redirectUrl: chrome.runtime.getURL("student_app.js")
     } : {};
@@ -26,6 +24,4 @@ chrome.webRequest.onHeadersReceived.addListener(info => {
 chrome.extension.onMessage.addListener((request, sender) => {
     request.message === "activate_icon" && chrome.pageAction.show(sender.tab.id);
 });
-
-console.log({ url: chrome.runtime.getURL("student_app.js") });
 chrome.storage.onChanged.addListener(settingsChanged)

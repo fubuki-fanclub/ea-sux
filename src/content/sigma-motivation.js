@@ -12,8 +12,7 @@ function generateMotivationHtml(text, author) {
 
 export function goSigma() {
     const quoteTarget = document.querySelector('.sigma .col-md-8.col-md-pull-4.header-info');
-    console.log("going sigma");
-    console.log({ quoteTarget })
+
     if (quoteTarget) {
         quoteTarget.innerHTML = generateMotivationHtml(randomEl(quotes), randomEl(authors));
     }
