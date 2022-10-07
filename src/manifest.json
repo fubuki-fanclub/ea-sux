@@ -16,7 +16,12 @@
     },
     "page_action": {
         "default_popup": "popup.html",
-        "default_icon": "icons/128.png"
+        "default_icon": "icons/128.png",
+        "show_matches": [
+            "*://komunikacija.easistent.com/*",
+            "*://www.easistent.com/*",
+            "*://easistent.com/*"
+        ]
     },
     "background": {
         "scripts": [
